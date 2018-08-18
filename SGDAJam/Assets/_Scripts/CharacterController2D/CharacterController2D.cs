@@ -136,17 +136,21 @@ namespace MichaelWolfGames.CC2D
         protected virtual void Awake()
         {
             LimitSpeed = true;
+            UpdateMovementFunc = deltaTime => { return _rigidbody.velocity; };
+            StartCoroutine(CoDoLateFixedUpdate());
         }
         protected virtual void Start()
         {
             if (!capsuleCollider) capsuleCollider = GetComponent<CapsuleCollider2D>();
             if (!_rigidbody) _rigidbody = GetComponent<Rigidbody2D>();
+            if (!_animator) _animator = GetComponentInChildren<Animator>();
         }
 
         //ToDo: Optimize pieces into FixedUpdate after core function works nicely.
         // THIS IS ALL FRAME RATE DEPENDENT!!!!
         protected virtual void Update()
         {
+            return;
             // Ground Check
             float deltaTime = Time.deltaTime;
             UpdateGroundDetection(deltaTime);
@@ -164,7 +168,36 @@ namespace MichaelWolfGames.CC2D
 
         protected virtual void FixedUpdate()
         {
+            // Ground Check
+            float deltaTime = Time.fixedDeltaTime;
+            UpdateGroundDetection(deltaTime);
 
+            // Movement Update
+            Vector2 resultVelocity = Vector2.zero;
+            if (!Suspended)
+            {
+                resultVelocity = UpdateMovementFunc(deltaTime);
+            }
+
+            // Finalize Movement 
+            FinalizeVelocity(resultVelocity);
+        }
+
+        protected virtual void LateFixedUpdate()
+        {
+            //// Ground Check
+            //float deltaTime = Time.fixedDeltaTime;
+            //UpdateGroundDetection(deltaTime);
+
+            //// Movement Update
+            //Vector2 resultVelocity = Vector2.zero;
+            //if (!Suspended)
+            //{
+            //    resultVelocity = UpdateMovementFunc(deltaTime);
+            //}
+
+            //// Finalize Movement 
+            //FinalizeVelocity(resultVelocity);
         }
 
         #endregion
@@ -374,5 +407,15 @@ namespace MichaelWolfGames.CC2D
         }
 
         #endregion
+
+        private IEnumerator CoDoLateFixedUpdate()
+        {
+            while (isActiveAndEnabled)
+            {
+                yield return new WaitForFixedUpdate();
+                LateFixedUpdate();
+            }
+        }
+        
     }
 }
