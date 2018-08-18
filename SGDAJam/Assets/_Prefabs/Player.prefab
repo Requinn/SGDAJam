@@ -297,7 +297,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 50
-        y: 116
+        y: 164
         width: 100
         height: 32
       isBreakpoint: 0
@@ -357,9 +357,9 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 201
-        y: 114
+        y: 162
         width: 100
-        height: 32
+        height: 48
       isBreakpoint: 0
       isSequence: 0
       hideUnused: 0
@@ -369,6 +369,14 @@ MonoBehaviour:
           isSystemEvent: 0
           isGlobal: 0
         toState: Jumping
+        linkStyle: 0
+        linkConstraint: 0
+        colorIndex: 0
+      - fsmEvent:
+          name: EnterAir
+          isSystemEvent: 0
+          isGlobal: 0
+        toState: InAir
         linkStyle: 0
         linkConstraint: 0
         colorIndex: 0
@@ -456,9 +464,9 @@ MonoBehaviour:
         fsmQuaternionParams: []
         stringParams:
         - OnJump
+        - EnterAir
         - 
-        - 
-        byteData: 0000f0400000604100006041ec51b83dcdcccc3d0000e0400000604100006041cdcc4c3d9a99993e0000803ecdcccc3dec51b83dcdcccc3d
+        byteData: 0000f04000006041000060410000803fcdcccc3d0000e0400000604100006041cdcc4c3d9a99993e0000803ecdcccc3dec51b83dcdcccc3d
         arrayParamSizes: 
         arrayParamTypes: []
         customTypeSizes: 
@@ -492,7 +500,7 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 371
+        x: 356
         y: 101
         width: 100
         height: 32
@@ -567,8 +575,8 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 372
-        y: 158
+        x: 365
+        y: 171
         width: 100
         height: 32
       isBreakpoint: 0

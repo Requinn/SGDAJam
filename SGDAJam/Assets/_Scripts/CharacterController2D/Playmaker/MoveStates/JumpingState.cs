@@ -22,8 +22,11 @@ namespace MichaelWolfGames.CC2D
 
             Debug.Log("JUMP!");
             Debug.DrawLine(Controller.GroundCheckPos, Controller.GroundCheckPos + Controller.CurrentGroundNormal * 10f, Color.magenta, 0.25f);
-            Vector2 jumpVector = Controller.CurrentGroundNormal * _jumpSpeed;
 
+            Vector2 jumpNormal = (Controller.IsGrounded) ? Controller.CurrentGroundNormal : Vector2.up;
+            Vector2 jumpVector = jumpNormal * _jumpSpeed;
+
+            Controller.Rigidbody.velocity = new Vector2(Controller.Rigidbody.velocity.x, 0f);
             Controller.Rigidbody.AddForce(jumpVector, ForceMode2D.Impulse);
             _isJumping = true;
         }
@@ -41,7 +44,7 @@ namespace MichaelWolfGames.CC2D
                 if (!jumpPressed)
                 {
                     float cancelSpeed = Mathf.Min(resultVelocity.y, 0.5f);
-                    resultVelocity = new Vector2(resultVelocity.x, 0f);
+                    resultVelocity = new Vector2(resultVelocity.x, cancelSpeed);
                 }
                 if (!jumpPressed || (Controller.IsGrounded|| Controller.Rigidbody.velocity.y <= 0f))
                 {

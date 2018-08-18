@@ -125,6 +125,10 @@ namespace MichaelWolfGames.CC2D
 
                 if (cayoteTimeActive)
                 {
+                    if (!Controller.IsGrounded)
+                    {
+                        vert = Controller.Rigidbody.velocity.y;
+                    }
                     cayoteTimer += deltaTime;
                     if (cayoteTimer > _cayoteDuration)
                     {
@@ -138,6 +142,7 @@ namespace MichaelWolfGames.CC2D
                     {
                         cayoteTimeActive = true;
                         cayoteTimer = 0f;
+                        vert = Controller.Rigidbody.velocity.y;
                     }
                 }
             }
