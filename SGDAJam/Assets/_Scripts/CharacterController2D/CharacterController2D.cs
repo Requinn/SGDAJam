@@ -45,6 +45,7 @@ namespace MichaelWolfGames.CC2D
         // By Default, using a Capsule collider... (refactor later?)
         public CapsuleCollider2D capsuleCollider;
         [SerializeField] protected Rigidbody2D _rigidbody;
+        [SerializeField] protected Animator _animator;
 
         [Header("Movement")]
         [SerializeField] protected float _maxHorzSpeed = 10f;
@@ -80,6 +81,11 @@ namespace MichaelWolfGames.CC2D
         {
             get { return _rigidbody; }
             protected set { _rigidbody = value; }
+        }
+        public Animator CharacterAnimator
+        {
+            get { return _animator; }
+            protected set { _animator = value; }
         }
         public float SlopeLimit
         {
