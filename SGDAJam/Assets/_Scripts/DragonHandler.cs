@@ -13,8 +13,16 @@ public class DragonHandler : MonoBehaviour {
         //subscribe to all the damageablenodes
         for (int i = 0; i < _damageableNode.Length; i++) {
             _damageableNode[i].OnTakeDamage += ReactToDamage;
+            _damageableNode[i].OnDeath += ReactToKill;
         }
 	}
+
+    /// <summary>
+    /// To handle the critical node dying
+    /// </summary>
+    private void ReactToKill() {
+        Debug.Log("Node died");
+    }
 
     /// <summary>
     /// How will we handle the damage being dealt to us?
