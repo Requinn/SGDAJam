@@ -15,6 +15,7 @@ public class CannonTrigger : MonoBehaviour {
 	private void OnTriggerEnter2D(Collider2D collision) {
 		if (collision.name == "Player") {
 			cannonBall.gameObject.SetActive(true);
+            gameObject.GetComponent<BoxCollider2D>().enabled = false; //turn ourself off since we aren't needed
 		}
 	}
 }

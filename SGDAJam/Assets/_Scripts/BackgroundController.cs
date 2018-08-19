@@ -74,10 +74,11 @@ public class BackgroundController : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.H)) {
             AddRotation(rotation, 1);
         }
-        _targetVelocity = (_prevCameraPos - _cameraRef.transform.position)/Time.deltaTime; //get a velocity of the player
+        _targetVelocity = (_prevCameraPos - _cameraRef.transform.position)/Time.deltaTime; //calculate velocity of the camera for use
         
         //if we are a non zero movement
         if(_targetVelocity != Vector3.zero) {
+            //do the parallax
             _backgroundObject.transform.position = Vector3.Lerp(_backgroundObject.transform.position, _backgroundObject.transform.position + (_targetVelocity * _parallaxSpeed), Time.deltaTime);
         }
 

@@ -28,7 +28,8 @@ public class TimeManager : MonoBehaviour {
         switch (currentState)
         {
             case (TimeState.Normal):
-                if(Input.GetButtonDown("Escape"))
+                if(GameSceneManager.Instance.currentState == GameSceneManager.ViewState.InGame &&
+                    Input.GetButtonDown("Escape"))
                 {
                     Pause();
                 }

@@ -2211,6 +2211,48 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1568410444
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1568410446}
+  - component: {fileID: 1568410445}
+  m_Layer: 0
+  m_Name: '[PH]DRAGON'
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1568410445
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1568410444}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 466b476d03b8f204fb96aee4825cc8e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _damageableNode:
+  - {fileID: 1829755366}
+--- !u!4 &1568410446
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1568410444}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 11.05704, y: 2.288099, z: 33.274025}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1737024656
 GameObject:
   m_ObjectHideFlags: 0
@@ -2312,6 +2354,12 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1829755366 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114092030417320850, guid: 6539f899c1345ac459b30ca1ceace19a,
+    type: 2}
+  m_PrefabInternal: {fileID: 1339857932}
+  m_Script: {fileID: 11500000, guid: d4405c16d705f3a48b1e04dda48daacb, type: 3}
 --- !u!1 &2026848434
 GameObject:
   m_ObjectHideFlags: 0
