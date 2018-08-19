@@ -88,7 +88,7 @@ namespace MichaelWolfGames.CC2D
             {
                 if (Mathf.Abs(Controller.Rigidbody.velocity.x) > 0.01f)
                 {
-                    resultVelocity = new Vector2(Controller.Rigidbody.velocity.x * _horzDecelerationFactor, Controller.Rigidbody.velocity.y);
+                    resultVelocity = new Vector2(Controller.Rigidbody.velocity.x * _horzDecelerationFactor, resultVelocity.y);
                 }
             }
 
