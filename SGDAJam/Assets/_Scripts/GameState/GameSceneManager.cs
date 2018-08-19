@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class GameStateManager : MonoBehaviour {
+public class GameSceneManager : MonoBehaviour {
 
     public enum GameState
     {
@@ -24,7 +24,7 @@ public class GameStateManager : MonoBehaviour {
     public GameState currentState { get { return _currentState; } }
     private GameState _currentState;
 
-    private static GameStateManager _instance;
+    private static GameSceneManager _instance;
 
     public float fadeTime = 2f; //in seconds
     private float startFadeTime = 0;
@@ -32,7 +32,7 @@ public class GameStateManager : MonoBehaviour {
     public Color failureFadeColor = Color.black;
     public Image fadeLayer;
 
-    public static GameStateManager Instance
+    public static GameSceneManager Instance
     {
         get
         { 
