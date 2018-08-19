@@ -8,10 +8,12 @@ namespace MichaelWolfGames.DamageSystem
     {
         [SerializeField] private float _delay = 0.15f;
         [SerializeField] private GameObject _rootGameObject;
+        private ParticleSystem _particle;
         protected override void Start()
         {
             base.Start();
             if (!_rootGameObject) _rootGameObject = SubscribableObject.gameObject;
+            _particle = GetComponent<ParticleSystem>();
         }
 
         protected override void SubscribeEvents()
@@ -27,6 +29,7 @@ namespace MichaelWolfGames.DamageSystem
         private void DoOnDeath()
         {
             if(!_rootGameObject) _rootGameObject = SubscribableObject.gameObject;
+            _particle.Play();
             Destroy(_rootGameObject, _delay);
         }
     }
