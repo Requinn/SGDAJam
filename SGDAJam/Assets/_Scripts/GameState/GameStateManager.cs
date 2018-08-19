@@ -1,11 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class GameSceneManager : MonoBehaviour {
+public class GameStateManager : MonoBehaviour {
 
     public enum GameState
     {
+        None,
         Menu,
         InGame,
         GameFailure,
@@ -18,23 +20,29 @@ public class GameSceneManager : MonoBehaviour {
     public string failureSceneName;
     public string victorySceneName;
 
-    public GameState currentState;
+    public GameState startingState = GameState.None;
+    public GameState currentState { get { return _currentState; } }
+    private GameState _currentState;
 
-    private static GameSceneManager _instance;
+    private static GameStateManager _instance;
 
     public float fadeTime = 2f; //in seconds
     private float startFadeTime = 0;
     public Color victoryFadeColor = Color.white;
     public Color failureFadeColor = Color.black;
+    public Image fadeLayer;
 
-    public static GameSceneManager GetInstance()
+    public static GameStateManager Instance
     {
-        return _instance;
+        get
+        { 
+            return _instance;
+        }
     }
 
     public void Awake()
     {
-        if(_instance == null  )
+        if(_instance == null)
         {
             _instance = this;
             DontDestroyOnLoad(this.gameObject);
@@ -46,9 +54,15 @@ public class GameSceneManager : MonoBehaviour {
         }
     }
 
+    public void Start()
+    {
+        _currentState = startingState;
+        DisableFade();
+    }
+
     public void Update()
     {
-        switch (currentState)
+        switch (_currentState)
         {
             case (GameState.GameFailure):
                 //The player has failed, fade to black
@@ -56,7 +70,16 @@ public class GameSceneManager : MonoBehaviour {
                     float endFadeTime = startFadeTime + fadeTime;
                     if (Time.fixedTime >= endFadeTime)
                     {
-
+                        DisableFade();
+                        if(!string.IsNullOrEmpty(failureSceneName))
+                        {
+                            UnityEngine.SceneManagement.SceneManager.LoadScene(failureSceneName);
+                        }
+                        else
+                        {
+                            UnityEngine.SceneManagement.SceneManager.LoadScene(gameSceneName);
+                        }
+                        
                     }
                     else
                     {
@@ -72,7 +95,8 @@ public class GameSceneManager : MonoBehaviour {
                     float endFadeTime = startFadeTime + fadeTime;
                     if (Time.fixedTime >= endFadeTime)
                     {
-                        
+                        DisableFade();
+                        UnityEngine.SceneManagement.SceneManager.LoadScene(victorySceneName);
                     }
                     else
                     {
@@ -85,13 +109,20 @@ public class GameSceneManager : MonoBehaviour {
 
     }
 
+    public bool StartGame()
+    {
+        _currentState = GameState.InGame;
+        UnityEngine.SceneManagement.SceneManager.LoadScene(gameSceneName);
+        return true;
+    }
+
     public bool FailGame()
     {
         //User has failed, fade to black and reload main scene
-        if (currentState == GameState.InGame)
+        if (_currentState == GameState.InGame)
         {
-            currentState = GameState.GameFailure;
-            startFadeTime = Time.fixedTime;
+            _currentState = GameState.GameFailure;
+            EnableFade();
             return true;
         }
         else
@@ -103,9 +134,9 @@ public class GameSceneManager : MonoBehaviour {
     public bool WinGame()
     {
         //End the game after 2 seconds, performing a fade to color
-        if (currentState == GameState.InGame)
+        if (_currentState == GameState.InGame)
         {
-            currentState = GameState.GameVictory;
+            _currentState = GameState.GameVictory;
             startFadeTime = Time.fixedTime;
             return true;
         }
@@ -116,19 +147,43 @@ public class GameSceneManager : MonoBehaviour {
 
     }
 
-#region Fade Controls
-    private void ResetFade()
+    public bool ReturnToMenu()
     {
-        
+        _currentState = GameState.Menu;
+        UnityEngine.SceneManagement.SceneManager.LoadScene(menuSceneName);
+        return true;
+    }
+
+#region Fade Controls
+    //Shoulda been seperate
+    private void DisableFade()
+    {
+        fadeLayer.color = new Color(1, 1, 1, 0);
+        fadeLayer.gameObject.SetActive(false);
+    }
+
+    private void EnableFade()
+    {
+        startFadeTime = Time.fixedTime;
+        fadeLayer.gameObject.SetActive(true);
     }
 
     private void FadeWithLerp(float lerp)
     {
-        
+        var newColor = GetCurrentFadeColor();
+        fadeLayer.color = new Color(newColor.r, newColor.g, newColor.b, lerp);
     }
 
-    private void SetFadeColor(Color fadeColor)
+    private Color GetCurrentFadeColor()
     {
+        switch (_currentState)
+        {
+            case (GameState.GameFailure):
+                return failureFadeColor;
+            case (GameState.GameVictory):
+            default:
+                return victoryFadeColor;
+        }
 
     }
 #endregion
