@@ -951,62 +951,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 5
       objectReference: {fileID: 0}
-    - target: {fileID: 95105764937119812, guid: 15dea5d0cc3dbfe4996a52bb5e2550e7,
+    - target: {fileID: 33151101250078090, guid: 15dea5d0cc3dbfe4996a52bb5e2550e7,
         type: 2}
-      propertyPath: m_Controller
+      propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 9100000, guid: 64d3aa678217c364d88521ba48cb572f, type: 2}
-    - target: {fileID: 114381656485921034, guid: 15dea5d0cc3dbfe4996a52bb5e2550e7,
-        type: 2}
-      propertyPath: fsm.states.Array.data[1].actionData.byteData.Array.data[8]
-      value: 123
       objectReference: {fileID: 0}
-    - target: {fileID: 114381656485921034, guid: 15dea5d0cc3dbfe4996a52bb5e2550e7,
-        type: 2}
-      propertyPath: fsm.states.Array.data[1].actionData.byteData.Array.data[9]
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 114381656485921034, guid: 15dea5d0cc3dbfe4996a52bb5e2550e7,
-        type: 2}
-      propertyPath: fsm.states.Array.data[1].actionData.byteData.Array.data[10]
-      value: 110
-      objectReference: {fileID: 0}
-    - target: {fileID: 212072920937783640, guid: 15dea5d0cc3dbfe4996a52bb5e2550e7,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4801881299757752, guid: 15dea5d0cc3dbfe4996a52bb5e2550e7, type: 2}
-      propertyPath: m_RootOrder
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4780449578350356, guid: 15dea5d0cc3dbfe4996a52bb5e2550e7, type: 2}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4851549739430300, guid: 15dea5d0cc3dbfe4996a52bb5e2550e7, type: 2}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1262220761488818, guid: 15dea5d0cc3dbfe4996a52bb5e2550e7, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114057264622244348, guid: 15dea5d0cc3dbfe4996a52bb5e2550e7,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 95105764937119812, guid: 15dea5d0cc3dbfe4996a52bb5e2550e7,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114955767824067488, guid: 15dea5d0cc3dbfe4996a52bb5e2550e7,
-        type: 2}
-      propertyPath: _animator
-      value: 
-      objectReference: {fileID: 941907073}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 15dea5d0cc3dbfe4996a52bb5e2550e7, type: 2}
   m_IsPrefabAsset: 0
@@ -3563,11 +3512,6 @@ MonoBehaviour:
     handleAnimatorIK: 0
   fsmTemplate: {fileID: 0}
   eventHandlerComponentsAdded: 0
---- !u!4 &872620816 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4479175531166108, guid: 15dea5d0cc3dbfe4996a52bb5e2550e7,
-    type: 2}
-  m_PrefabInternal: {fileID: 169883855}
 --- !u!1 &900509555
 GameObject:
   m_ObjectHideFlags: 0
@@ -3659,11 +3603,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &941907073 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 95945442236487166, guid: 45406047616ab5c41bdc24e072b7ee68,
-    type: 2}
-  m_PrefabInternal: {fileID: 1734215827}
 --- !u!1 &968737900
 GameObject:
   m_ObjectHideFlags: 3
@@ -6689,65 +6628,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &1734215827
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 872620816}
-    m_Modifications:
-    - target: {fileID: 4654540621827770, guid: 45406047616ab5c41bdc24e072b7ee68, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4654540621827770, guid: 45406047616ab5c41bdc24e072b7ee68, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4654540621827770, guid: 45406047616ab5c41bdc24e072b7ee68, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4654540621827770, guid: 45406047616ab5c41bdc24e072b7ee68, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4654540621827770, guid: 45406047616ab5c41bdc24e072b7ee68, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4654540621827770, guid: 45406047616ab5c41bdc24e072b7ee68, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4654540621827770, guid: 45406047616ab5c41bdc24e072b7ee68, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4654540621827770, guid: 45406047616ab5c41bdc24e072b7ee68, type: 2}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 33850601743134684, guid: 45406047616ab5c41bdc24e072b7ee68,
-        type: 2}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 4654540621827770, guid: 45406047616ab5c41bdc24e072b7ee68, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 0.15
-      objectReference: {fileID: 0}
-    - target: {fileID: 4654540621827770, guid: 45406047616ab5c41bdc24e072b7ee68, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 0.15
-      objectReference: {fileID: 0}
-    - target: {fileID: 4654540621827770, guid: 45406047616ab5c41bdc24e072b7ee68, type: 2}
-      propertyPath: m_LocalScale.z
-      value: 0.15
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 45406047616ab5c41bdc24e072b7ee68, type: 2}
-  m_IsPrefabAsset: 0
 --- !u!1 &1760915524
 GameObject:
   m_ObjectHideFlags: 0
