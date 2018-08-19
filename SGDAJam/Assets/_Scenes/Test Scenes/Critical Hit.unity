@@ -20,11 +20,11 @@ RenderSettings:
   m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
+  m_AmbientSkyColor: {r: 0.1, g: 0.1, b: 0.1, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
-  m_AmbientMode: 3
+  m_AmbientMode: 4
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
   m_SkyboxMaterial: {fileID: 0}
   m_HaloStrength: 0.5
@@ -428,7 +428,7 @@ MonoBehaviour:
           name: CheckDash
           isSystemEvent: 0
           isGlobal: 0
-        toState: CheckForAir
+        toState: isGrounded
         linkStyle: 0
         linkConstraint: 0
         colorIndex: 0
@@ -556,7 +556,7 @@ MonoBehaviour:
         - ControllerObject
         paramDataPos: 0000000004000000080000000c0000001000000014000000180000001c0000000000000020000000000000000000000000000000000000000100000001000000
         paramByteDataSize: 04000000040000000400000004000000040000000400000004000000040000000000000004000000000000000000000000000000000000000000000000000000
-    - name: Dash
+    - name: Plunge
       description: 
       colorIndex: 0
       position:
@@ -619,7 +619,7 @@ MonoBehaviour:
           tooltip: 
           showInInspector: 0
           networkSync: 0
-          value: Attack
+          value: AirAttack
         fsmObjectParams: []
         fsmVarParams: []
         fsmArrayParams: []
@@ -711,14 +711,14 @@ MonoBehaviour:
         paramName: []
         paramDataPos: 
         paramByteDataSize: 
-    - name: CheckForAir
+    - name: isGrounded
       description: 
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 288
-        y: 165
-        width: 111
+        x: 428
+        y: 157
+        width: 105
         height: 48
       isBreakpoint: 0
       isSequence: 0
@@ -728,15 +728,15 @@ MonoBehaviour:
           name: Dash
           isSystemEvent: 0
           isGlobal: 0
-        toState: Dash
+        toState: Strike
         linkStyle: 0
         linkConstraint: 0
         colorIndex: 0
       - fsmEvent:
-          name: Return
+          name: Plunge
           isSystemEvent: 0
           isGlobal: 0
-        toState: Default
+        toState: Plunge
         linkStyle: 0
         linkConstraint: 0
         colorIndex: 0
@@ -778,8 +778,8 @@ MonoBehaviour:
         fsmRectParams: []
         fsmQuaternionParams: []
         stringParams:
-        - Return
         - Dash
+        - Plunge
         byteData: 00
         arrayParamSizes: 
         arrayParamTypes: []
@@ -793,6 +793,109 @@ MonoBehaviour:
         - everyFrame
         paramDataPos: 00000000000000000100000000000000
         paramByteDataSize: 00000000000000000000000001000000
+    - name: Strike
+      description: 
+      colorIndex: 0
+      position:
+        serializedVersion: 2
+        x: 254.5
+        y: 179
+        width: 100
+        height: 32
+      isBreakpoint: 0
+      isSequence: 0
+      hideUnused: 0
+      transitions:
+      - fsmEvent:
+          name: FINISHED
+          isSystemEvent: 1
+          isGlobal: 0
+        toState: Default
+        linkStyle: 0
+        linkConstraint: 0
+        colorIndex: 0
+      actionData:
+        actionNames:
+        - MichaelWolfGames.CC2D.DashSate
+        - HutongGames.PlayMaker.Actions.SetAnimatorTrigger
+        customNames:
+        - 
+        - 
+        actionEnabled: 0101
+        actionIsOpen: 0101
+        actionStartIndex: 0000000003000000
+        actionHashCodes: d15ac1049bd6f801
+        unityObjectParams: []
+        fsmGameObjectParams: []
+        fsmOwnerDefaultParams:
+        - ownerOption: 0
+          gameObject:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: {fileID: 0}
+        - ownerOption: 1
+          gameObject:
+            useVariable: 1
+            name: Animator
+            tooltip: 
+            showInInspector: 1
+            networkSync: 0
+            value: {fileID: 941116786}
+        animationCurveParams: []
+        functionCallParams: []
+        fsmTemplateControlParams: []
+        fsmEventTargetParams: []
+        fsmPropertyParams: []
+        layoutOptionParams: []
+        fsmStringParams:
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: GroundAttack
+        fsmObjectParams: []
+        fsmVarParams: []
+        fsmArrayParams: []
+        fsmEnumParams: []
+        fsmFloatParams:
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 2
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 0.15
+        fsmIntParams: []
+        fsmBoolParams: []
+        fsmVector2Params: []
+        fsmVector3Params: []
+        fsmColorParams: []
+        fsmRectParams: []
+        fsmQuaternionParams: []
+        stringParams: []
+        byteData: 
+        arrayParamSizes: 
+        arrayParamTypes: []
+        customTypeSizes: 
+        customTypeNames: []
+        paramDataType: 0f0000000f000000140000001400000012000000
+        paramName:
+        - DashDistance
+        - DashDuration
+        - ControllerObject
+        - gameObject
+        - trigger
+        paramDataPos: 0000000001000000000000000100000000000000
+        paramByteDataSize: 0000000000000000000000000000000000000000
     events:
     - name: FINISHED
       isSystemEvent: 1
@@ -806,7 +909,7 @@ MonoBehaviour:
     - name: OnWall
       isSystemEvent: 0
       isGlobal: 0
-    - name: Return
+    - name: Plunge
       isSystemEvent: 0
       isGlobal: 0
     globalTransitions: []
@@ -1333,6 +1436,52 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1001 &413666668
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4756674633183220, guid: 6539f899c1345ac459b30ca1ceace19a, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 7.950001
+      objectReference: {fileID: 0}
+    - target: {fileID: 4756674633183220, guid: 6539f899c1345ac459b30ca1ceace19a, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -1.21
+      objectReference: {fileID: 0}
+    - target: {fileID: 4756674633183220, guid: 6539f899c1345ac459b30ca1ceace19a, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -0.09765625
+      objectReference: {fileID: 0}
+    - target: {fileID: 4756674633183220, guid: 6539f899c1345ac459b30ca1ceace19a, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4756674633183220, guid: 6539f899c1345ac459b30ca1ceace19a, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4756674633183220, guid: 6539f899c1345ac459b30ca1ceace19a, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4756674633183220, guid: 6539f899c1345ac459b30ca1ceace19a, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4756674633183220, guid: 6539f899c1345ac459b30ca1ceace19a, type: 2}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1373689157598978, guid: 6539f899c1345ac459b30ca1ceace19a, type: 2}
+      propertyPath: m_Name
+      value: Critical Node (2)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6539f899c1345ac459b30ca1ceace19a, type: 2}
+  m_IsPrefabAsset: 0
 --- !u!1 &473300367
 GameObject:
   m_ObjectHideFlags: 0
@@ -2224,6 +2373,52 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1001 &1315903742
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4756674633183220, guid: 6539f899c1345ac459b30ca1ceace19a, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 14.349999
+      objectReference: {fileID: 0}
+    - target: {fileID: 4756674633183220, guid: 6539f899c1345ac459b30ca1ceace19a, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -1.21
+      objectReference: {fileID: 0}
+    - target: {fileID: 4756674633183220, guid: 6539f899c1345ac459b30ca1ceace19a, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -0.09765625
+      objectReference: {fileID: 0}
+    - target: {fileID: 4756674633183220, guid: 6539f899c1345ac459b30ca1ceace19a, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4756674633183220, guid: 6539f899c1345ac459b30ca1ceace19a, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4756674633183220, guid: 6539f899c1345ac459b30ca1ceace19a, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4756674633183220, guid: 6539f899c1345ac459b30ca1ceace19a, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4756674633183220, guid: 6539f899c1345ac459b30ca1ceace19a, type: 2}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1373689157598978, guid: 6539f899c1345ac459b30ca1ceace19a, type: 2}
+      propertyPath: m_Name
+      value: Critical Node (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6539f899c1345ac459b30ca1ceace19a, type: 2}
+  m_IsPrefabAsset: 0
 --- !u!1001 &1339857932
 Prefab:
   m_ObjectHideFlags: 0
@@ -2262,6 +2457,52 @@ Prefab:
     - target: {fileID: 4756674633183220, guid: 6539f899c1345ac459b30ca1ceace19a, type: 2}
       propertyPath: m_RootOrder
       value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6539f899c1345ac459b30ca1ceace19a, type: 2}
+  m_IsPrefabAsset: 0
+--- !u!1001 &1378327298
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4756674633183220, guid: 6539f899c1345ac459b30ca1ceace19a, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 10.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 4756674633183220, guid: 6539f899c1345ac459b30ca1ceace19a, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -1.21
+      objectReference: {fileID: 0}
+    - target: {fileID: 4756674633183220, guid: 6539f899c1345ac459b30ca1ceace19a, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -0.09765625
+      objectReference: {fileID: 0}
+    - target: {fileID: 4756674633183220, guid: 6539f899c1345ac459b30ca1ceace19a, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4756674633183220, guid: 6539f899c1345ac459b30ca1ceace19a, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4756674633183220, guid: 6539f899c1345ac459b30ca1ceace19a, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4756674633183220, guid: 6539f899c1345ac459b30ca1ceace19a, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4756674633183220, guid: 6539f899c1345ac459b30ca1ceace19a, type: 2}
+      propertyPath: m_RootOrder
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1373689157598978, guid: 6539f899c1345ac459b30ca1ceace19a, type: 2}
+      propertyPath: m_Name
+      value: Critical Node (3)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6539f899c1345ac459b30ca1ceace19a, type: 2}
@@ -3020,7 +3261,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2128607254}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.01, y: -0.21, z: 0}
+  m_LocalPosition: {x: 0, y: -0.21, z: 0}
   m_LocalScale: {x: 5.20695, y: 5.4819283, z: 1}
   m_Children: []
   m_Father: {fileID: 46592261}
@@ -3095,14 +3336,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 2128607254}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 27563cfecf484b069ea2deaea5ac6f66, type: 3}
+  m_Script: {fileID: 11500000, guid: 7634227c816927a4bacc6a12ab57cb73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   defaultDamageValue: 100
-  faction: 0
-  damageType: 1
+  faction: 1
+  damageType: 0
   _canDealDamage: 1
-  DealDamageOncePerActivation: 0
+  DealDamageOncePerActivation: 1
 --- !u!1 &2146948679
 GameObject:
   m_ObjectHideFlags: 0
