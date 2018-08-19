@@ -16,6 +16,8 @@ public class GameSceneManager : MonoBehaviour {
 		GameOverScreen
     }
 
+	public static bool hasPlayed = false;
+
     public string menuSceneName;
     public string gameSceneName;
     public string failureSceneName;
@@ -161,6 +163,10 @@ public class GameSceneManager : MonoBehaviour {
         UnityEngine.SceneManagement.SceneManager.LoadScene(menuSceneName);
         return true;
     }
+
+	public void setHasPlayed(bool played) {
+		hasPlayed = played;
+	}
 
 #region Fade Controls
     //Shoulda been seperate
