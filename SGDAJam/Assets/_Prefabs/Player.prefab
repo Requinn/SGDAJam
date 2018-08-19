@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4801881299757752}
   - component: {fileID: 212641068497170906}
   - component: {fileID: 70255744111704542}
+  - component: {fileID: 114244654560623548}
   m_Layer: 0
   m_Name: HitBox
   m_TagString: Untagged
@@ -253,7 +254,7 @@ Animator:
   m_GameObject: {fileID: 1256785232678744}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 64d3aa678217c364d88521ba48cb572f, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -275,6 +276,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SubscribableObject: {fileID: 0}
   flippingTransform: {fileID: 4973237878938828}
+--- !u!114 &114244654560623548
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1138047970612464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7634227c816927a4bacc6a12ab57cb73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultDamageValue: 100
+  faction: 0
+  damageType: 1
+  _canDealDamage: 1
+  DealDamageOncePerActivation: 1
 --- !u!114 &114381656485921034
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -359,8 +376,8 @@ MonoBehaviour:
         serializedVersion: 2
         x: 201
         y: 146
-        width: 100
-        height: 48
+        width: 112
+        height: 64
       isBreakpoint: 0
       isSequence: 0
       hideUnused: 0
@@ -381,15 +398,25 @@ MonoBehaviour:
         linkStyle: 0
         linkConstraint: 0
         colorIndex: 0
+      - fsmEvent:
+          name: CheckAttack
+          isSystemEvent: 0
+          isGlobal: 0
+        toState: GroundHit
+        linkStyle: 0
+        linkConstraint: 0
+        colorIndex: 0
       actionData:
         actionNames:
         - MichaelWolfGames.CC2D.GroundControlState
+        - HutongGames.PlayMaker.Actions.GetButtonDown
         customNames:
         - 
-        actionEnabled: 01
-        actionIsOpen: 01
-        actionStartIndex: 00000000
-        actionHashCodes: de1af301
+        - 
+        actionEnabled: 0101
+        actionIsOpen: 0101
+        actionStartIndex: 000000000b000000
+        actionHashCodes: de1af3011012c100
         unityObjectParams: []
         fsmGameObjectParams: []
         fsmOwnerDefaultParams:
@@ -407,14 +434,26 @@ MonoBehaviour:
         fsmEventTargetParams: []
         fsmPropertyParams: []
         layoutOptionParams: []
-        fsmStringParams: []
+        fsmStringParams:
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: Fire2
         fsmObjectParams: []
         fsmVarParams: []
         fsmArrayParams: []
         fsmEnumParams: []
         fsmFloatParams: []
         fsmIntParams: []
-        fsmBoolParams: []
+        fsmBoolParams:
+        - useVariable: 1
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 0
         fsmVector2Params: []
         fsmVector3Params: []
         fsmColorParams: []
@@ -425,12 +464,13 @@ MonoBehaviour:
         - EnterAir
         - 
         - 
+        - CheckAttack
         byteData: 0000f040000048423333733f0000a04000006041cdcccc3e
         arrayParamSizes: 
         arrayParamTypes: []
         customTypeSizes: 
         customTypeNames: []
-        paramDataType: 0200000002000000020000000200000002000000020000001700000017000000170000001700000014000000
+        paramDataType: 0200000002000000020000000200000002000000020000001700000017000000170000001700000014000000120000001700000011000000
         paramName:
         - _moveSpeed
         - _horzAcceleration
@@ -443,8 +483,11 @@ MonoBehaviour:
         - OnExitAir
         - OnStartSlide
         - ControllerObject
-        paramDataPos: 0000000004000000080000000c00000010000000140000000000000001000000020000000300000000000000
-        paramByteDataSize: 0400000004000000040000000400000004000000040000000000000000000000000000000000000000000000
+        - buttonName
+        - sendEvent
+        - storeResult
+        paramDataPos: 0000000004000000080000000c00000010000000140000000000000001000000020000000300000000000000000000000400000000000000
+        paramByteDataSize: 0400000004000000040000000400000004000000040000000000000000000000000000000000000000000000000000000000000000000000
     - name: Jumping
       description: 
       colorIndex: 0
@@ -452,8 +495,8 @@ MonoBehaviour:
         serializedVersion: 2
         x: 467
         y: 114
-        width: 100
-        height: 32
+        width: 112
+        height: 48
       isBreakpoint: 0
       isSequence: 0
       hideUnused: 0
@@ -466,15 +509,25 @@ MonoBehaviour:
         linkStyle: 0
         linkConstraint: 0
         colorIndex: 0
+      - fsmEvent:
+          name: CheckAttack
+          isSystemEvent: 0
+          isGlobal: 0
+        toState: Plunge
+        linkStyle: 0
+        linkConstraint: 0
+        colorIndex: 0
       actionData:
         actionNames:
         - MichaelWolfGames.CC2D.JumpingState
+        - HutongGames.PlayMaker.Actions.GetButtonDown
         customNames:
         - 
-        actionEnabled: 01
-        actionIsOpen: 01
-        actionStartIndex: 00000000
-        actionHashCodes: d7bf9900
+        - 
+        actionEnabled: 0101
+        actionIsOpen: 0101
+        actionStartIndex: 0000000006000000
+        actionHashCodes: d7bf99001012c100
         unityObjectParams: []
         fsmGameObjectParams: []
         fsmOwnerDefaultParams:
@@ -492,14 +545,26 @@ MonoBehaviour:
         fsmEventTargetParams: []
         fsmPropertyParams: []
         layoutOptionParams: []
-        fsmStringParams: []
+        fsmStringParams:
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: Fire2
         fsmObjectParams: []
         fsmVarParams: []
         fsmArrayParams: []
         fsmEnumParams: []
         fsmFloatParams: []
         fsmIntParams: []
-        fsmBoolParams: []
+        fsmBoolParams:
+        - useVariable: 1
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 0
         fsmVector2Params: []
         fsmVector3Params: []
         fsmColorParams: []
@@ -507,12 +572,13 @@ MonoBehaviour:
         fsmQuaternionParams: []
         stringParams:
         - FINISHED
+        - CheckAttack
         byteData: 0000f04000004842a4707d3f00008441
         arrayParamSizes: 
         arrayParamTypes: []
         customTypeSizes: 
         customTypeNames: []
-        paramDataType: 020000000200000002000000020000001700000014000000
+        paramDataType: 020000000200000002000000020000001700000014000000120000001700000011000000
         paramName:
         - _moveSpeed
         - _horzAcceleration
@@ -520,8 +586,11 @@ MonoBehaviour:
         - _jumpSpeed
         - OnFinishJump
         - ControllerObject
-        paramDataPos: 0000000004000000080000000c0000000000000000000000
-        paramByteDataSize: 040000000400000004000000040000000000000000000000
+        - buttonName
+        - sendEvent
+        - storeResult
+        paramDataPos: 0000000004000000080000000c0000000000000000000000000000000100000000000000
+        paramByteDataSize: 040000000400000004000000040000000000000000000000000000000000000000000000
     - name: InAir
       description: 
       colorIndex: 0
@@ -529,8 +598,8 @@ MonoBehaviour:
         serializedVersion: 2
         x: 470
         y: 180
-        width: 100
-        height: 32
+        width: 112
+        height: 48
       isBreakpoint: 0
       isSequence: 0
       hideUnused: 0
@@ -543,15 +612,25 @@ MonoBehaviour:
         linkStyle: 0
         linkConstraint: 0
         colorIndex: 0
+      - fsmEvent:
+          name: CheckAttack
+          isSystemEvent: 0
+          isGlobal: 0
+        toState: Plunge
+        linkStyle: 0
+        linkConstraint: 0
+        colorIndex: 0
       actionData:
         actionNames:
         - MichaelWolfGames.CC2D.InAirState
+        - HutongGames.PlayMaker.Actions.GetButtonDown
         customNames:
         - 
-        actionEnabled: 01
-        actionIsOpen: 01
-        actionStartIndex: 00000000
-        actionHashCodes: ea3c3402
+        - 
+        actionEnabled: 0101
+        actionIsOpen: 0101
+        actionStartIndex: 0000000005000000
+        actionHashCodes: ea3c34021012c100
         unityObjectParams: []
         fsmGameObjectParams: []
         fsmOwnerDefaultParams:
@@ -569,14 +648,26 @@ MonoBehaviour:
         fsmEventTargetParams: []
         fsmPropertyParams: []
         layoutOptionParams: []
-        fsmStringParams: []
+        fsmStringParams:
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: Fire2
         fsmObjectParams: []
         fsmVarParams: []
         fsmArrayParams: []
         fsmEnumParams: []
         fsmFloatParams: []
         fsmIntParams: []
-        fsmBoolParams: []
+        fsmBoolParams:
+        - useVariable: 1
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 0
         fsmVector2Params: []
         fsmVector3Params: []
         fsmColorParams: []
@@ -584,20 +675,24 @@ MonoBehaviour:
         fsmQuaternionParams: []
         stringParams:
         - ExitAir
+        - CheckAttack
         byteData: 0000f0400000484248e17a3f
         arrayParamSizes: 
         arrayParamTypes: []
         customTypeSizes: 
         customTypeNames: []
-        paramDataType: 0200000002000000020000001700000014000000
+        paramDataType: 0200000002000000020000001700000014000000120000001700000011000000
         paramName:
         - _moveSpeed
         - _horzAcceleration
         - _horzDecelerationFactor
         - OnExitAir
         - ControllerObject
-        paramDataPos: 0000000004000000080000000000000000000000
-        paramByteDataSize: 0400000004000000040000000000000000000000
+        - buttonName
+        - sendEvent
+        - storeResult
+        paramDataPos: 0000000004000000080000000000000000000000000000000100000000000000
+        paramByteDataSize: 0400000004000000040000000000000000000000000000000000000000000000
     - name: Slide
       description: 
       colorIndex: 0
@@ -692,9 +787,270 @@ MonoBehaviour:
         - ControllerObject
         paramDataPos: 0000000000000000010000000200000000000000
         paramByteDataSize: 0400000000000000000000000000000000000000
+    - name: GroundHit
+      description: 
+      colorIndex: 0
+      position:
+        serializedVersion: 2
+        x: 488
+        y: 381
+        width: 100
+        height: 32
+      isBreakpoint: 0
+      isSequence: 0
+      hideUnused: 0
+      transitions:
+      - fsmEvent:
+          name: FINISHED
+          isSystemEvent: 1
+          isGlobal: 0
+        toState: Grounded
+        linkStyle: 0
+        linkConstraint: 0
+        colorIndex: 0
+      actionData:
+        actionNames:
+        - HutongGames.PlayMaker.Actions.SetAnimatorTrigger
+        - MichaelWolfGames.CC2D.DashSate
+        customNames:
+        - 
+        - 
+        actionEnabled: 0101
+        actionIsOpen: 0101
+        actionStartIndex: 0000000002000000
+        actionHashCodes: 9bd6f801d15ac104
+        unityObjectParams: []
+        fsmGameObjectParams: []
+        fsmOwnerDefaultParams:
+        - ownerOption: 1
+          gameObject:
+            useVariable: 1
+            name: Animator
+            tooltip: 
+            showInInspector: 1
+            networkSync: 0
+            value: {fileID: 1256785232678744}
+        - ownerOption: 0
+          gameObject:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: {fileID: 0}
+        animationCurveParams: []
+        functionCallParams: []
+        fsmTemplateControlParams: []
+        fsmEventTargetParams: []
+        fsmPropertyParams: []
+        layoutOptionParams: []
+        fsmStringParams:
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: GroundAttack
+        fsmObjectParams: []
+        fsmVarParams: []
+        fsmArrayParams: []
+        fsmEnumParams: []
+        fsmFloatParams:
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 2
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 0.2
+        fsmIntParams: []
+        fsmBoolParams: []
+        fsmVector2Params: []
+        fsmVector3Params: []
+        fsmColorParams: []
+        fsmRectParams: []
+        fsmQuaternionParams: []
+        stringParams: []
+        byteData: 
+        arrayParamSizes: 
+        arrayParamTypes: []
+        customTypeSizes: 
+        customTypeNames: []
+        paramDataType: 14000000120000000f0000000f00000014000000
+        paramName:
+        - gameObject
+        - trigger
+        - DashDistance
+        - DashDuration
+        - ControllerObject
+        paramDataPos: 0000000000000000000000000100000001000000
+        paramByteDataSize: 0000000000000000000000000000000000000000
+    - name: State 2
+      description: 
+      colorIndex: 0
+      position:
+        serializedVersion: 2
+        x: 855
+        y: 393
+        width: 100
+        height: 16
+      isBreakpoint: 0
+      isSequence: 0
+      hideUnused: 0
+      transitions: []
+      actionData:
+        actionNames: []
+        customNames: []
+        actionEnabled: 
+        actionIsOpen: 
+        actionStartIndex: 
+        actionHashCodes: 
+        unityObjectParams: []
+        fsmGameObjectParams: []
+        fsmOwnerDefaultParams: []
+        animationCurveParams: []
+        functionCallParams: []
+        fsmTemplateControlParams: []
+        fsmEventTargetParams: []
+        fsmPropertyParams: []
+        layoutOptionParams: []
+        fsmStringParams: []
+        fsmObjectParams: []
+        fsmVarParams: []
+        fsmArrayParams: []
+        fsmEnumParams: []
+        fsmFloatParams: []
+        fsmIntParams: []
+        fsmBoolParams: []
+        fsmVector2Params: []
+        fsmVector3Params: []
+        fsmColorParams: []
+        fsmRectParams: []
+        fsmQuaternionParams: []
+        stringParams: []
+        byteData: 
+        arrayParamSizes: 
+        arrayParamTypes: []
+        customTypeSizes: 
+        customTypeNames: []
+        paramDataType: 
+        paramName: []
+        paramDataPos: 
+        paramByteDataSize: 
+    - name: Plunge
+      description: 
+      colorIndex: 0
+      position:
+        serializedVersion: 2
+        x: 483
+        y: 298
+        width: 100
+        height: 32
+      isBreakpoint: 0
+      isSequence: 0
+      hideUnused: 0
+      transitions:
+      - fsmEvent:
+          name: FINISHED
+          isSystemEvent: 1
+          isGlobal: 0
+        toState: Grounded
+        linkStyle: 0
+        linkConstraint: 0
+        colorIndex: 0
+      actionData:
+        actionNames:
+        - HutongGames.PlayMaker.Actions.SetAnimatorTrigger
+        - MichaelWolfGames.CC2D.DashSate
+        customNames:
+        - 
+        - 
+        actionEnabled: 0101
+        actionIsOpen: 0101
+        actionStartIndex: 0000000002000000
+        actionHashCodes: 9bd6f801d15ac104
+        unityObjectParams: []
+        fsmGameObjectParams: []
+        fsmOwnerDefaultParams:
+        - ownerOption: 1
+          gameObject:
+            useVariable: 1
+            name: Animator
+            tooltip: 
+            showInInspector: 1
+            networkSync: 0
+            value: {fileID: 1256785232678744}
+        - ownerOption: 0
+          gameObject:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: {fileID: 0}
+        animationCurveParams: []
+        functionCallParams: []
+        fsmTemplateControlParams: []
+        fsmEventTargetParams: []
+        fsmPropertyParams: []
+        layoutOptionParams: []
+        fsmStringParams:
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: AirAttack
+        fsmObjectParams: []
+        fsmVarParams: []
+        fsmArrayParams: []
+        fsmEnumParams: []
+        fsmFloatParams:
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 10
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 0.2
+        fsmIntParams: []
+        fsmBoolParams: []
+        fsmVector2Params: []
+        fsmVector3Params: []
+        fsmColorParams: []
+        fsmRectParams: []
+        fsmQuaternionParams: []
+        stringParams: []
+        byteData: 
+        arrayParamSizes: 
+        arrayParamTypes: []
+        customTypeSizes: 
+        customTypeNames: []
+        paramDataType: 14000000120000000f0000000f00000014000000
+        paramName:
+        - gameObject
+        - trigger
+        - DashDistance
+        - DashDuration
+        - ControllerObject
+        paramDataPos: 0000000000000000000000000100000001000000
+        paramByteDataSize: 0000000000000000000000000000000000000000
     events:
     - name: FINISHED
       isSystemEvent: 1
+      isGlobal: 0
+    - name: CheckAttack
+      isSystemEvent: 0
       isGlobal: 0
     - name: EnterAir
       isSystemEvent: 0
@@ -743,7 +1099,7 @@ MonoBehaviour:
     locked: 0
     manualUpdate: 0
     keepDelayedEventsOnStateExit: 0
-    preprocessed: 0
+    preprocessed: 1
     ExposedEvents: []
     RestartOnEnable: 1
     EnableDebugFlow: 0
@@ -811,6 +1167,14 @@ MonoBehaviour:
   _skinWidth: 0.05
   _slopeLimit: 60
   _ceilingSlopeLimit: 20
+  FSMController: {fileID: 0}
+  isGroundedFSM:
+    useVariable: 0
+    name: 
+    tooltip: 
+    showInInspector: 0
+    networkSync: 0
+    value: 0
 --- !u!212 &212072920937783640
 SpriteRenderer:
   m_ObjectHideFlags: 1
