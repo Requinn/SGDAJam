@@ -1,0 +1,13 @@
+
+Dragon_1.png
+size: 1024,256
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+dragon_white
+  rotate: false
+  xy: 2, 2
+  size: 1000, 183
+  orig: 1000, 183
+  offset: 0, 0
+  index: -1
