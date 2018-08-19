@@ -1,8 +1,7 @@
 fileFormatVersion: 2
-guid: 444d2e7c956e702478270efe79bdfb6a
+guid: 5da09cecf553ee64387f6486ff9ca640
 TextureImporter:
-  fileIDToRecycleName:
-    21300000: dragon_white
+  fileIDToRecycleName: {}
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -64,7 +63,18 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -72,31 +82,11 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: dragon_white
-      rect:
-        serializedVersion: 2
-        x: 2
-        y: 71
-        width: 1000
-        height: 183
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 7acbf85687222a6468eda141e5b292f4
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 19623d8ca59153f429d1aa2c702accb3
+    spriteID: 70dab7531c32e0d49924df3cf3eeb5b8
     vertices: []
     indices: 
     edges: []
