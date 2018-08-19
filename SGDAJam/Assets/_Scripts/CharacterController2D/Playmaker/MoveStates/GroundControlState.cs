@@ -10,6 +10,8 @@ namespace MichaelWolfGames.CC2D
         #region Fields
         //[Header("Movement")] 
         public float _moveSpeed = 7.5f;
+        public float _horzAcceleration = 50f;
+        public float _horzDecelerationFactor = 0.9f;
         //[Header("Jumping")]
         public float _jumpSpeed = 10f;
         public float _fallSpeed = 10f;
@@ -55,10 +57,40 @@ namespace MichaelWolfGames.CC2D
         protected override Vector2 MovementUpdate(float deltaTime)
         {
             float h = Input.GetAxis("Horizontal");
-            float v = 0f; 
-            h *= _moveSpeed;
+            float v = 0f;
+            //h *= _moveSpeed;
+
+            //Vector2 resultVelocity = UpdateMove(deltaTime, h);
+            //float x = resultVelocity.x;
+            //float y = resultVelocity.y;
+            if (Mathf.Abs(h) > 0.01f)
+            {
+                float horz = Controller.Rigidbody.velocity.x + (deltaTime * (h * _horzAcceleration));
+                h = Mathf.Clamp(horz, -_moveSpeed, _moveSpeed);
+            }
+            else // No Input - Decelerate
+            {
+                if (Mathf.Abs(Controller.Rigidbody.velocity.x) > 0.01f)
+                {
+                    //h = Controller.Rigidbody.velocity.x * _horzDecelerationFactor;
+                }
+                else
+                {
+                    h = 0f;
+                    //y = 0f;
+                }
+            }
+            //resultVelocity = new Vector2(x, y);
 
             Vector2 resultVelocity = UpdateMove(deltaTime, h);
+
+            if (Mathf.Abs(h) <= 0.01f)
+            {
+                if (Mathf.Abs(Controller.Rigidbody.velocity.x) > 0.01f)
+                {
+                    resultVelocity = new Vector2(Controller.Rigidbody.velocity.x * _horzDecelerationFactor, Controller.Rigidbody.velocity.y);
+                }
+            }
 
             if ((Controller.IsGrounded || cayoteTimeActive)) //&& !jumpOnCooldown
             {
@@ -68,6 +100,7 @@ namespace MichaelWolfGames.CC2D
                     resultVelocity = Controller.Rigidbody.velocity;
                 }
             }
+
             return resultVelocity;
         }
 
@@ -84,11 +117,6 @@ namespace MichaelWolfGames.CC2D
                     Fsm.Event(OnEnterAir);
                     isInAir = true;
                 }
-                //bool jumpPressed = Input.GetButton("Jump");
-                //if (jumpPressed == false)
-                //{
-
-                //}
                 //horz = Controller.Rigidbody.velocity.x;
                 vert = Controller.Rigidbody.velocity.y;
             }
