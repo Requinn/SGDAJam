@@ -735,6 +735,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1605439487}
+        m_MethodName: setHasPlayed
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &557368654
@@ -1247,6 +1258,12 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1536105744}
   m_CullTransparentMesh: 0
+--- !u!114 &1605439487 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114766235166199870, guid: 72c17312ccd62754899482621ed82ce9,
+    type: 2}
+  m_PrefabInternal: {fileID: 125854168}
+  m_Script: {fileID: 11500000, guid: 5596a3f24aa2c3e4994a60d5ace0b114, type: 3}
 --- !u!1 &1670534538
 GameObject:
   m_ObjectHideFlags: 0

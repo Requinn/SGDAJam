@@ -11,8 +11,15 @@ public class SequencePlayer : MonoBehaviour {
     int _playedIndex = 0; 
 
 	void Start () {
+		
         _playerRef = PlayerInstance.Instance.GetComponent<CharacterController2D>();
-        StartCoroutine(PlaySequence());
+		if(!GameSceneManager.hasPlayed) {
+			StartCoroutine(PlaySequence());
+			GameSceneManager.hasPlayed = true;
+		}
+		else {
+			StartCoroutine(PlaySequenceFast());
+		}
 	}
 
     private IEnumerator PlaySequence() {
@@ -27,4 +34,18 @@ public class SequencePlayer : MonoBehaviour {
         //return control to the players
         _playerRef.Suspended = false;
     }
+
+	private IEnumerator PlaySequenceFast() {
+		//suspend all input
+		_playerRef.Suspended = true;
+		//play every sequence object
+		while (_playedIndex < steps.Length) {
+			steps[_playedIndex].sequenceDuration = 0f;
+			steps[_playedIndex].PlaySequenceObject();
+			yield return new WaitForSeconds(steps[_playedIndex].sequenceDuration);
+			_playedIndex++;
+		}
+		//return control to the players
+		_playerRef.Suspended = false;
+	}
 }

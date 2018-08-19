@@ -4405,7 +4405,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84ba11ef8bd06c64b8d8e9f71144e4b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sequenceDuration: 7.5
+  sequenceDuration: 6
   dragonObject: {fileID: 1471657089}
   startPos: {x: -35, y: -110, z: 0}
   endPos: {x: -15, y: -30, z: 0}
@@ -5164,7 +5164,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 067aa9fe362794e4594032166defb007, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sequenceDuration: 5
+  sequenceDuration: 2
   vCam: {fileID: 313334357}
   vCam2: {fileID: 1422052458}
 --- !u!4 &2132292258
