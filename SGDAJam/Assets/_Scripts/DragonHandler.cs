@@ -9,8 +9,10 @@ public class DragonHandler : MonoBehaviour {
     HealthManagerBase[] _damageableNode;
     private int _nodesToHit;
     private int _nodesKilled;
-	// Use this for initialization
-
+    // Use this for initialization
+    public AudioClip deathRoar;
+    public AudioClip hurtRoar;
+    public AudioSource Audio;
 	public DumbSceneWorkaround dsw;
 	public GameObject dragon;
 	private bool gameOver, done;
@@ -22,7 +24,7 @@ public class DragonHandler : MonoBehaviour {
             _damageableNode[i].OnTakeDamage += ReactToDamage;
             _damageableNode[i].OnDeath += ReactToKill;
         }
-
+        Audio = GetComponent<AudioSource>();
 		gameOver = done = false;
 	}
 
@@ -60,8 +62,9 @@ public class DragonHandler : MonoBehaviour {
     /// <param name="sender"></param>
     /// <param name="args"></param>
     private void ReactToDamage(object sender, Damage.DamageEventArgs args) {
-        Debug.Log("Damaged with severity: " + args.DamageValue);
+        //Debug.Log("Damaged with severity: " + args.DamageValue);
         //when struck, speed up the animation of the dragon by X amount for some seconds
+        Audio.PlayOneShot(hurtRoar);
     }
 
     /// <summary>
@@ -69,9 +72,9 @@ public class DragonHandler : MonoBehaviour {
     /// </summary>
     private void CheckForGameOver() {
         if (_nodesKilled == _nodesToHit) {
-			//End the game
-
-			gameOver = true;
+            //End the game
+            Audio.PlayOneShot(deathRoar);
+            gameOver = true;
 			Debug.Log("GAME ENDED");
         } 
     }
