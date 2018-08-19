@@ -172,7 +172,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1299001169133104}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -23.81998, y: 8.667491, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4973237878938828}
@@ -665,7 +665,7 @@ MonoBehaviour:
         - 
         - 
         - CheckAttack
-        byteData: 00000000000000f07b146e48423333733f0000a04000006041cdcccc3e
+        byteData: 000000000000006041146e48420000003f0000a04000006041cdcccc3e
         arrayParamSizes: 
         arrayParamTypes: []
         customTypeSizes: 

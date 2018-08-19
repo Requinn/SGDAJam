@@ -187,9 +187,10 @@ namespace MichaelWolfGames.CC2D
             FinalizeVelocity(resultVelocity);
 
             //pass everything over to the animator
-            if (_animator) {
+            if (_animator)
+            {
                 _animator.SetBool("IsGrounded", IsGrounded);
-                _animator.SetFloat("HorzMove", _rigidbody.velocity.x);
+                _animator.SetFloat("HorzMove", Mathf.Abs(_rigidbody.velocity.x));
             }
         }
 
