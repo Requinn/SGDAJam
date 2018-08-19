@@ -8,12 +8,12 @@ namespace MichaelWolfGames.DamageSystem
     {
         [SerializeField] private float _delay = 0.15f;
         [SerializeField] private GameObject _rootGameObject;
-        private ParticleSystem _particle;
+        public ParticleSystem _particle;
         protected override void Start()
         {
             base.Start();
             if (!_rootGameObject) _rootGameObject = SubscribableObject.gameObject;
-            _particle = GetComponent<ParticleSystem>();
+            //_particle = GetComponent<ParticleSystem>();
         }
 
         protected override void SubscribeEvents()
@@ -30,6 +30,8 @@ namespace MichaelWolfGames.DamageSystem
         {
             if(!_rootGameObject) _rootGameObject = SubscribableObject.gameObject;
             _particle.Play();
+            GetComponent<BoxCollider2D>().enabled = false;
+            GetComponent<SpriteRenderer>().enabled = false;
             Destroy(_rootGameObject, _delay);
         }
     }
