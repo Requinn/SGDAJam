@@ -1,5 +1,5 @@
 {
-"skeleton": { "hash": "Rdadpjl5AYOnIiOy7QGgajtDhHc", "spine": "3.6.53", "width": 1903.24, "height": 1706.83 },
+"skeleton": { "hash": "/PHyBCVf1H0a+T5nUwy7Zpabnkc", "spine": "3.6.53", "width": 1903.24, "height": 1706.83 },
 "bones": [
 	{ "name": "root" },
 	{ "name": "Hip", "parent": "root", "y": 912.08 },
@@ -538,62 +538,95 @@
 		"bones": {
 			"Hip": {
 				"translate": [
-					{ "time": 0, "x": 0, "y": 51.91, "curve": "stepped" },
-					{ "time": 0.1667, "x": 0, "y": 51.91 }
+					{ "time": 0, "x": 0, "y": 51.91 },
+					{ "time": 0.0667, "x": -2.75, "y": 57.41 },
+					{ "time": 0.1667, "x": 4.58, "y": 65.65 },
+					{ "time": 0.3333, "x": 0, "y": 51.91 }
 				]
 			},
 			"Arm_R_1": {
 				"translate": [
 					{ "time": 0, "x": -17.75, "y": -72.51, "curve": "stepped" },
-					{ "time": 0.1667, "x": -17.75, "y": -72.51 }
+					{ "time": 0.1667, "x": -17.75, "y": -72.51, "curve": "stepped" },
+					{ "time": 0.3333, "x": -17.75, "y": -72.51 }
 				]
 			},
 			"Leg_R_IK": {
 				"rotate": [
 					{ "time": 0, "angle": -6.41, "curve": "stepped" },
-					{ "time": 0.1667, "angle": -6.41 }
+					{ "time": 0.1667, "angle": -6.41, "curve": "stepped" },
+					{ "time": 0.3333, "angle": -6.41 }
 				],
 				"translate": [
-					{ "time": 0, "x": -260.33, "y": -201.6, "curve": "stepped" },
-					{ "time": 0.1667, "x": -260.33, "y": -201.6 }
+					{ "time": 0, "x": -79.14, "y": 117.85 },
+					{ "time": 0.1667, "x": -51.65, "y": 186.58 },
+					{ "time": 0.3333, "x": -79.14, "y": 117.85 }
 				]
 			},
 			"Hand_L": {
 				"rotate": [
 					{ "time": 0, "angle": -43.19, "curve": "stepped" },
-					{ "time": 0.1667, "angle": -43.19 }
+					{ "time": 0.1667, "angle": -43.19, "curve": "stepped" },
+					{ "time": 0.3333, "angle": -43.19 }
 				]
 			},
 			"Arm_R_IK": {
 				"translate": [
-					{ "time": 0, "x": -103.2, "y": 912.58, "curve": "stepped" },
-					{ "time": 0.1667, "x": -103.2, "y": 912.58 }
+					{ "time": 0, "x": 174.4, "y": 825.27 },
+					{ "time": 0.1667, "x": 155.97, "y": 779.27 },
+					{ "time": 0.3333, "x": 174.4, "y": 825.27 }
 				]
 			},
 			"Leg_L_IK": {
 				"rotate": [
 					{ "time": 0, "angle": -41.17, "curve": "stepped" },
-					{ "time": 0.1667, "angle": -41.17 }
+					{ "time": 0.1667, "angle": -41.17, "curve": "stepped" },
+					{ "time": 0.3333, "angle": -41.17 }
 				],
 				"translate": [
-					{ "time": 0, "x": 72.43, "y": 0, "curve": "stepped" },
-					{ "time": 0.1667, "x": 72.43, "y": 0 }
+					{ "time": 0, "x": -61.07, "y": 238.4 },
+					{ "time": 0.1667, "x": -74.82, "y": 357.53 },
+					{ "time": 0.3333, "x": -61.07, "y": 238.4 }
 				],
 				"scale": [
 					{ "time": 0, "x": 1, "y": 1, "curve": "stepped" },
-					{ "time": 0.1667, "x": 1, "y": 1 }
+					{ "time": 0.1667, "x": 1, "y": 1, "curve": "stepped" },
+					{ "time": 0.3333, "x": 1, "y": 1 }
 				]
 			},
 			"Arm_L_IK": {
 				"translate": [
-					{ "time": 0, "x": -249.53, "y": -651.6, "curve": "stepped" },
-					{ "time": 0.1667, "x": -249.53, "y": -651.6 }
+					{ "time": 0, "x": 120.4, "y": -702.3 },
+					{ "time": 0.1667, "x": 157.66, "y": -745.98 },
+					{ "time": 0.3333, "x": 120.4, "y": -702.3 }
 				]
 			},
 			"Arm_L_1": {
 				"translate": [
 					{ "time": 0, "x": 4.73, "y": 101.25, "curve": "stepped" },
-					{ "time": 0.1667, "x": 4.73, "y": 101.25 }
+					{ "time": 0.1667, "x": 4.73, "y": 101.25, "curve": "stepped" },
+					{ "time": 0.3333, "x": 4.73, "y": 101.25 }
+				]
+			},
+			"Spine_2": {
+				"rotate": [
+					{ "time": 0, "angle": -18.82, "curve": "stepped" },
+					{ "time": 0.1667, "angle": -18.82, "curve": "stepped" },
+					{ "time": 0.3333, "angle": -18.82 }
+				]
+			},
+			"Head": {
+				"rotate": [
+					{ "time": 0, "angle": -8.8, "curve": "stepped" },
+					{ "time": 0.1667, "angle": -8.8, "curve": "stepped" },
+					{ "time": 0.3333, "angle": -8.8 }
+				]
+			},
+			"Neck_1": {
+				"rotate": [
+					{ "time": 0, "angle": -17.62, "curve": "stepped" },
+					{ "time": 0.1667, "angle": -17.62, "curve": "stepped" },
+					{ "time": 0.3333, "angle": -17.62 }
 				]
 			}
 		}

@@ -30,6 +30,8 @@ public class DragonHandler : MonoBehaviour {
 
 	private void Update() {
 		if(gameOver) {
+			PlayerPrefs.SetFloat("victory", 1f);
+			PlayerPrefs.Save();
 			if (dragon.transform.position.y > -100f) {
 				dragon.transform.position += Vector3.down * 15f * Time.deltaTime;
 				done = false;
@@ -38,8 +40,6 @@ public class DragonHandler : MonoBehaviour {
 			}
 
 			if (done) {
-				PlayerPrefs.SetFloat("victory", 1f);
-				PlayerPrefs.Save();
 				dsw.GameOver();
 			}
 		}

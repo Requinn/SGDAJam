@@ -35,6 +35,8 @@ namespace MichaelWolfGames.CC2D
             Controller.Rigidbody.velocity = new Vector2(Controller.Rigidbody.velocity.x, 0f);
             Controller.Rigidbody.AddForce(jumpVector, ForceMode2D.Impulse);
             _isJumping = true;
+
+            Controller.CharacterAnimator.SetTrigger("Jump");
         }
 
         protected override Vector2 MovementUpdate(float deltaTime)
