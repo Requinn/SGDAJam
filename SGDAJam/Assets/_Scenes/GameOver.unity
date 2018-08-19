@@ -411,6 +411,7 @@ GameObject:
   - component: {fileID: 1118390926}
   - component: {fileID: 1118390925}
   - component: {fileID: 1118390924}
+  - component: {fileID: 1118390928}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -497,6 +498,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1118390928
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1118390923}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fbc82e8e2b2db64a80228aef97c85b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameOver: {fileID: 1194832008}
+  con: {fileID: 1328354287}
 --- !u!1 &1194832006
 GameObject:
   m_ObjectHideFlags: 0
@@ -529,8 +543,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 21.58}
-  m_SizeDelta: {x: 160, y: 73.15}
+  m_AnchoredPosition: {x: -0.34, y: 100.31}
+  m_SizeDelta: {x: 329.83, y: 135.72}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1194832008
 MonoBehaviour:
@@ -552,12 +566,12 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 30
+    m_Font: {fileID: 12800000, guid: 1e9e9840c29fb674cba9962d28a2e0fd, type: 3}
+    m_FontSize: 45
     m_FontStyle: 2
     m_BestFit: 0
     m_MinSize: 0
-    m_MaxSize: 40
+    m_MaxSize: 45
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -727,7 +741,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 46.8}
   m_SizeDelta: {x: 160, y: 49.54}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1328354287

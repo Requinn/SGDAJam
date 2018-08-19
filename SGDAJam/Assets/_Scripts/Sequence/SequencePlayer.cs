@@ -23,8 +23,12 @@ public class SequencePlayer : MonoBehaviour {
 	}
 
     private IEnumerator PlaySequence() {
-        //suspend all input
-        _playerRef.Suspended = true;
+
+		PlayerPrefs.SetFloat("victory", 0f);
+		PlayerPrefs.Save();
+
+		//suspend all input
+		_playerRef.Suspended = true;
         //play every sequence object
         while (_playedIndex < steps.Length) {
             steps[_playedIndex].PlaySequenceObject();

@@ -9,7 +9,12 @@ public class DragonHandler : MonoBehaviour {
     HealthManagerBase[] _damageableNode;
     private int _nodesToHit;
     private int _nodesKilled;
-    // Use this for initialization
+	// Use this for initialization
+
+	public DumbSceneWorkaround dsw;
+	public GameObject dragon;
+	private bool gameOver, done;
+	
     void Start() {
         _nodesToHit = _damageableNode.Length;
         //subscribe to all the damageablenodes
@@ -17,12 +22,32 @@ public class DragonHandler : MonoBehaviour {
             _damageableNode[i].OnTakeDamage += ReactToDamage;
             _damageableNode[i].OnDeath += ReactToKill;
         }
+
+		gameOver = done = false;
 	}
 
-    /// <summary>
-    /// To handle the critical node dying
-    /// </summary>
-    private void ReactToKill() {
+	private void Update() {
+		if(gameOver) {
+			if (dragon.transform.position.y > -100f) {
+				dragon.transform.position += Vector3.down * 15f * Time.deltaTime;
+				done = false;
+			} else {
+				done = true;
+			}
+
+			if (done) {
+				PlayerPrefs.SetFloat("victory", 1f);
+				PlayerPrefs.Save();
+				dsw.GameOver();
+			}
+		}
+		
+	}
+
+	/// <summary>
+	/// To handle the critical node dying
+	/// </summary>
+	private void ReactToKill() {
         Debug.Log("Node died");
         _nodesKilled++;
 
@@ -44,10 +69,10 @@ public class DragonHandler : MonoBehaviour {
     /// </summary>
     private void CheckForGameOver() {
         if (_nodesKilled == _nodesToHit) {
-            //End the game
-            Debug.Log("GAME ENDED");
+			//End the game
+
+			gameOver = true;
+			Debug.Log("GAME ENDED");
         } 
     }
-
-
 }
