@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class GameSceneManager : MonoBehaviour {
 
-    public enum GameState
+    public enum ViewState
     {
         None,
         Menu,
@@ -20,9 +20,9 @@ public class GameSceneManager : MonoBehaviour {
     public string failureSceneName;
     public string victorySceneName;
 
-    public GameState startingState = GameState.None;
-    public GameState currentState { get { return _currentState; } }
-    private GameState _currentState;
+    public ViewState startingState = ViewState.None;
+    public ViewState currentState { get { return _currentState; } }
+    private ViewState _currentState;
 
     private static GameSceneManager _instance;
 
@@ -64,7 +64,7 @@ public class GameSceneManager : MonoBehaviour {
     {
         switch (_currentState)
         {
-            case (GameState.GameFailure):
+            case (ViewState.GameFailure):
                 //The player has failed, fade to black
                 {
                     float endFadeTime = startFadeTime + fadeTime;
@@ -89,7 +89,7 @@ public class GameSceneManager : MonoBehaviour {
 
                     break;
                 }
-            case (GameState.GameVictory):
+            case (ViewState.GameVictory):
                 //The player is victorious, fade to white, then swap to victory scene
                 {
                     float endFadeTime = startFadeTime + fadeTime;
@@ -111,7 +111,7 @@ public class GameSceneManager : MonoBehaviour {
 
     public bool StartGame()
     {
-        _currentState = GameState.InGame;
+        _currentState = ViewState.InGame;
         UnityEngine.SceneManagement.SceneManager.LoadScene(gameSceneName);
         return true;
     }
@@ -119,9 +119,9 @@ public class GameSceneManager : MonoBehaviour {
     public bool FailGame()
     {
         //User has failed, fade to black and reload main scene
-        if (_currentState == GameState.InGame)
+        if (_currentState == ViewState.InGame)
         {
-            _currentState = GameState.GameFailure;
+            _currentState = ViewState.GameFailure;
             EnableFade();
             return true;
         }
@@ -134,9 +134,9 @@ public class GameSceneManager : MonoBehaviour {
     public bool WinGame()
     {
         //End the game after 2 seconds, performing a fade to color
-        if (_currentState == GameState.InGame)
+        if (_currentState == ViewState.InGame)
         {
-            _currentState = GameState.GameVictory;
+            _currentState = ViewState.GameVictory;
             startFadeTime = Time.fixedTime;
             return true;
         }
@@ -149,7 +149,7 @@ public class GameSceneManager : MonoBehaviour {
 
     public bool ReturnToMenu()
     {
-        _currentState = GameState.Menu;
+        _currentState = ViewState.Menu;
         UnityEngine.SceneManagement.SceneManager.LoadScene(menuSceneName);
         return true;
     }
@@ -178,9 +178,9 @@ public class GameSceneManager : MonoBehaviour {
     {
         switch (_currentState)
         {
-            case (GameState.GameFailure):
+            case (ViewState.GameFailure):
                 return failureFadeColor;
-            case (GameState.GameVictory):
+            case (ViewState.GameVictory):
             default:
                 return victoryFadeColor;
         }
