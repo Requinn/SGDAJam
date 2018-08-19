@@ -1,0 +1,216 @@
+{ "skeleton": { "images": "images/" },
+"bones": [
+	{ "name": "root" }
+],
+"slots": [
+	{ "name": "Background", "bone": "root", "attachment": "Background" },
+	{ "name": "Hand_Back", "bone": "root", "attachment": "Hand_Back" },
+	{ "name": "LowerArm_Back", "bone": "root", "attachment": "LowerArm_Back" },
+	{ "name": "UpperArm_Back", "bone": "root", "attachment": "UpperArm_Back" },
+	{ "name": "ArmGuardInsidePanel_Back", "bone": "root", "attachment": "ArmGuardInsidePanel_Back" },
+	{ "name": "ArmGuardPanel_Back", "bone": "root", "attachment": "ArmGuardPanel_Back" },
+	{ "name": "ArmGuard_Back", "bone": "root", "attachment": "ArmGuard_Back" },
+	{ "name": "HatStrap_back", "bone": "root", "attachment": "HatStrap_back" },
+	{ "name": "Belt_Back", "bone": "root", "attachment": "Belt_Back" },
+	{ "name": "Foot_Back", "bone": "root", "attachment": "Foot_Back" },
+	{ "name": "LowerLeg_Back", "bone": "root", "attachment": "LowerLeg_Back" },
+	{ "name": "UpperLeg_Back", "bone": "root", "attachment": "UpperLeg_Back" },
+	{ "name": "Shorts_Back", "bone": "root", "attachment": "Shorts_Back" },
+	{ "name": "LeatherBuckle_Back", "bone": "root", "attachment": "LeatherBuckle_Back" },
+	{ "name": "LowerPad_Back", "bone": "root", "attachment": "LowerPad_Back" },
+	{ "name": "UpperPad_Back", "bone": "root", "attachment": "UpperPad_Back" },
+	{ "name": "KneePad_Back", "bone": "root", "attachment": "KneePad_Back" },
+	{ "name": "ToeGuard_Back", "bone": "root", "attachment": "ToeGuard_Back" },
+	{ "name": "Neck", "bone": "root", "attachment": "Neck" },
+	{ "name": "Torso_Back", "bone": "root", "attachment": "Torso_Back" },
+	{ "name": "BackAcessory", "bone": "root", "attachment": "BackAcessory" },
+	{ "name": "Torso_Front", "bone": "root", "attachment": "Torso_Front" },
+	{ "name": "Breast", "bone": "root", "attachment": "Breast" },
+	{ "name": "Layer 73", "bone": "root", "attachment": "Layer 73" },
+	{ "name": "Hat_Back", "bone": "root", "attachment": "Hat_Back" },
+	{ "name": "HairTuft_Back", "bone": "root", "attachment": "HairTuft_Back" },
+	{ "name": "Face", "bone": "root", "attachment": "Face" },
+	{ "name": "HeadHair", "bone": "root", "attachment": "HeadHair" },
+	{ "name": "Hat_Front", "bone": "root", "attachment": "Hat_Front" },
+	{ "name": "Bang_Back", "bone": "root", "attachment": "Bang_Back" },
+	{ "name": "HairTuft_Front", "bone": "root", "attachment": "HairTuft_Front" },
+	{ "name": "Bang_Front", "bone": "root", "attachment": "Bang_Front" },
+	{ "name": "HatLoop_Front", "bone": "root", "attachment": "HatLoop_Front" },
+	{ "name": "HeadStrap_Front", "bone": "root", "attachment": "HeadStrap_Front" },
+	{ "name": "EarMuff", "bone": "root", "attachment": "EarMuff" },
+	{ "name": "InsideShortsPanel_Front", "bone": "root", "attachment": "InsideShortsPanel_Front" },
+	{ "name": "Foot_Front", "bone": "root", "attachment": "Foot_Front" },
+	{ "name": "LowerLeg_Front", "bone": "root", "attachment": "LowerLeg_Front" },
+	{ "name": "UpperLeg_Front", "bone": "root", "attachment": "UpperLeg_Front" },
+	{ "name": "LeatherBuckle_Front", "bone": "root", "attachment": "LeatherBuckle_Front" },
+	{ "name": "LowerPad_Front", "bone": "root", "attachment": "LowerPad_Front" },
+	{ "name": "UpperPad_Front", "bone": "root", "attachment": "UpperPad_Front" },
+	{ "name": "Shorts_Front", "bone": "root", "attachment": "Shorts_Front" },
+	{ "name": "KneePad_Front", "bone": "root", "attachment": "KneePad_Front" },
+	{ "name": "ToeGuard_Front", "bone": "root", "attachment": "ToeGuard_Front" },
+	{ "name": "Belt Front", "bone": "root", "attachment": "Belt Front" },
+	{ "name": "Hand_Front", "bone": "root", "attachment": "Hand_Front" },
+	{ "name": "LowerArm_Front", "bone": "root", "attachment": "LowerArm_Front" },
+	{ "name": "UpperArm_Front", "bone": "root", "attachment": "UpperArm_Front" },
+	{ "name": "ArmGuardPanel_Front", "bone": "root" },
+	{ "name": "ArmGuard_Front", "bone": "root" }
+],
+"skins": {
+	"default": {
+		"Background": {
+			"Background": { "x": 164, "y": 829, "width": 2736, "height": 2052 }
+		},
+		"Hand_Back": {
+			"Hand_Back": { "x": -351.5, "y": 796, "width": 111, "height": 110 }
+		},
+		"LowerArm_Back": {
+			"LowerArm_Back": { "x": -261.5, "y": 933.5, "width": 195, "height": 225 }
+		},
+		"UpperArm_Back": {
+			"UpperArm_Back": { "x": -111, "y": 1103, "width": 186, "height": 224 }
+		},
+		"ArmGuardInsidePanel_Back": {
+			"ArmGuardInsidePanel_Back": { "x": -180, "y": 1050.5, "width": 82, "height": 115 }
+		},
+		"ArmGuardPanel_Back": {
+			"ArmGuardPanel_Back": { "x": -161.5, "y": 1077.5, "width": 47, "height": 95 }
+		},
+		"ArmGuard_Back": {
+			"ArmGuard_Back": { "x": -287.5, "y": 945.5, "width": 253, "height": 323 }
+		},
+		"HatStrap_back": {
+			"HatStrap_back": { "x": 84.4999999999995, "y": 1222.5, "width": 81, "height": 261 }
+		},
+		"Belt_Back": {
+			"Belt_Back": { "x": -9.00000000000023, "y": 936.5, "width": 220, "height": 103 }
+		},
+		"Foot_Back": {
+			"Foot_Back": { "x": 463, "y": 63, "width": 222, "height": 134 }
+		},
+		"LowerLeg_Back": {
+			"LowerLeg_Back": { "x": 295, "y": 274, "width": 344, "height": 522 }
+		},
+		"UpperLeg_Back": {
+			"UpperLeg_Back": { "x": 83.4999999999998, "y": 710, "width": 273, "height": 490 }
+		},
+		"Shorts_Back": {
+			"Shorts_Back": { "x": 46.9999999999993, "y": 878, "width": 148, "height": 178 }
+		},
+		"LeatherBuckle_Back": {
+			"LeatherBuckle_Back": { "x": 110.5, "y": 491, "width": 107, "height": 106 }
+		},
+		"LowerPad_Back": {
+			"LowerPad_Back": { "x": 294.999999999999, "y": 263, "width": 412, "height": 488 }
+		},
+		"UpperPad_Back": {
+			"UpperPad_Back": { "x": 109.5, "y": 637, "width": 225, "height": 302 }
+		},
+		"KneePad_Back": {
+			"KneePad_Back": { "x": 174.5, "y": 509.5, "width": 163, "height": 195 }
+		},
+		"ToeGuard_Back": {
+			"ToeGuard_Back": { "x": 508, "y": 85, "width": 122, "height": 98 }
+		},
+		"Neck": {
+			"Neck": { "x": 6.99999999999955, "y": 1257.5, "width": 72, "height": 119 }
+		},
+		"Torso_Back": {
+			"Torso_Back": { "x": 10.4999999999995, "y": 1015.5, "width": 201, "height": 447 }
+		},
+		"BackAcessory": {
+			"BackAcessory": { "x": -27.5000000000005, "y": 1158, "width": 55, "height": 84 }
+		},
+		"Torso_Front": {
+			"Torso_Front": { "x": -17.5000000000005, "y": 1020.5, "width": 225, "height": 443 }
+		},
+		"Breast": {
+			"Breast": { "x": -7.00000000000023, "y": 1007.5, "width": 240, "height": 341 }
+		},
+		"Layer 73": {
+			"Layer 73": { "x": 76.4999999999995, "y": 1480, "width": 45, "height": 90 }
+		},
+		"Hat_Back": {
+			"Hat_Back": { "x": 21.4999999999995, "y": 1394.5, "width": 159, "height": 219 }
+		},
+		"HairTuft_Back": {
+			"HairTuft_Back": { "x": 104, "y": 1352, "width": 98, "height": 170 }
+		},
+		"Face": {
+			"Face": { "x": 7.49999999999955, "y": 1447.5, "width": 213, "height": 377 }
+		},
+		"HeadHair": {
+			"HeadHair": { "x": -27.0000000000005, "y": 1427, "width": 202, "height": 182 }
+		},
+		"Hat_Front": {
+			"Hat_Front": { "x": -23.0000000000005, "y": 1434.5, "width": 264, "height": 403 }
+		},
+		"Bang_Back": {
+			"Bang_Back": { "x": 64.4999999999998, "y": 1444, "width": 123, "height": 130 }
+		},
+		"HairTuft_Front": {
+			"HairTuft_Front": { "x": -44.5000000000005, "y": 1312, "width": 85, "height": 136 }
+		},
+		"Bang_Front": {
+			"Bang_Front": { "x": -27.0000000000005, "y": 1432.5, "width": 94, "height": 151 }
+		},
+		"HatLoop_Front": {
+			"HatLoop_Front": { "x": -4.50000000000045, "y": 1468, "width": 213, "height": 188 }
+		},
+		"HeadStrap_Front": {
+			"HeadStrap_Front": { "x": -63.5000000000005, "y": 1282.5, "width": 67, "height": 171 }
+		},
+		"EarMuff": {
+			"EarMuff": { "x": -83.5000000000005, "y": 1372, "width": 93, "height": 104 }
+		},
+		"InsideShortsPanel_Front": {
+			"InsideShortsPanel_Front": { "x": -99.5000000000005, "y": 823, "width": 157, "height": 114 }
+		},
+		"Foot_Front": {
+			"Foot_Front": { "x": -376, "y": 44, "width": 248, "height": 214 }
+		},
+		"LowerLeg_Front": {
+			"LowerLeg_Front": { "x": -340.5, "y": 303.5, "width": 243, "height": 493 }
+		},
+		"UpperLeg_Front": {
+			"UpperLeg_Front": { "x": -122, "y": 725, "width": 266, "height": 536 }
+		},
+		"LeatherBuckle_Front": {
+			"LeatherBuckle_Front": { "x": -335.5, "y": 551.5, "width": 163, "height": 77 }
+		},
+		"LowerPad_Front": {
+			"LowerPad_Front": { "x": -360.5, "y": 286, "width": 293, "height": 528 }
+		},
+		"UpperPad_Front": {
+			"UpperPad_Front": { "x": -149.5, "y": 653.5, "width": 269, "height": 241 }
+		},
+		"Shorts_Front": {
+			"Shorts_Front": { "x": -77.0000000000007, "y": 871, "width": 196, "height": 202 }
+		},
+		"KneePad_Front": {
+			"KneePad_Front": { "x": -212.5, "y": 505.5, "width": 195, "height": 173 }
+		},
+		"ToeGuard_Front": {
+			"ToeGuard_Front": { "x": -354.5, "y": -11, "width": 205, "height": 100 }
+		},
+		"Belt Front": {
+			"Belt Front": { "x": -6.00000000000068, "y": 918, "width": 240, "height": 210 }
+		},
+		"Hand_Front": {
+			"Hand_Front": { "x": 438.5, "y": 796, "width": 109, "height": 134 }
+		},
+		"LowerArm_Front": {
+			"LowerArm_Front": { "x": 312, "y": 920, "width": 246, "height": 204 }
+		},
+		"UpperArm_Front": {
+			"UpperArm_Front": { "x": 133.499999999999, "y": 1097, "width": 221, "height": 230 }
+		},
+		"ArmGuardPanel_Front": {
+			"ArmGuardPanel_Front": { "x": 200, "y": 1024.5, "width": 130, "height": 127 }
+		},
+		"ArmGuard_Front": {
+			"ArmGuard_Front": { "x": 287.5, "y": 900.5, "width": 419, "height": 325 }
+		}
+	}
+},
+"animations": { "animation": {} }
+}
