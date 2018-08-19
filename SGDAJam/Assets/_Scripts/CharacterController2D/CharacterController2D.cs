@@ -150,20 +150,20 @@ namespace MichaelWolfGames.CC2D
         // THIS IS ALL FRAME RATE DEPENDENT!!!!
         protected virtual void Update()
         {
-            return;
-            // Ground Check
-            float deltaTime = Time.deltaTime;
-            UpdateGroundDetection(deltaTime);
+            //return;
+            //// Ground Check
+            //float deltaTime = Time.deltaTime;
+            //UpdateGroundDetection(deltaTime);
 
-            // Movement Update
-            Vector2 resultVelocity = Vector2.zero;
-            if (!Suspended)
-            {
-                resultVelocity = UpdateMovementFunc(deltaTime); 
-            }
+            //// Movement Update
+            //Vector2 resultVelocity = Vector2.zero;
+            //if (!Suspended)
+            //{
+            //    resultVelocity = UpdateMovementFunc(deltaTime); 
+            //}
 
-            // Finalize Movement 
-            FinalizeVelocity(resultVelocity);
+            //// Finalize Movement 
+            //FinalizeVelocity(resultVelocity);
         }
 
         protected virtual void FixedUpdate()

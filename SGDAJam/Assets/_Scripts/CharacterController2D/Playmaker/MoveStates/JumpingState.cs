@@ -24,8 +24,13 @@ namespace MichaelWolfGames.CC2D
 
             Debug.DrawLine(Controller.GroundCheckPos, Controller.GroundCheckPos + Controller.CurrentGroundNormal * 10f, Color.magenta, 0.25f);
 
-            Vector2 jumpNormal = (Controller.IsGrounded) ? Controller.CurrentGroundNormal : Vector2.up;
-            Vector2 jumpVector = jumpNormal * _jumpSpeed;
+            Vector2 jumpVector = new Vector2(0f, _jumpSpeed);
+
+            //Vector2 jumpNormal = (Controller.IsGrounded) ? Controller.CurrentGroundNormal : Vector2.up;
+            //Vector2 jumpVector = jumpNormal * _jumpSpeed;
+
+            //float jumpRatio = ((Mathf.Abs(jumpNormal.y) > 0) ? jumpNormal.x / jumpNormal.y : 1f);
+            //Vector2 jumpVector = new Vector2(_jumpSpeed * jumpRatio, _jumpSpeed);// jumpNormal * _jumpSpeed * jumpRatio;
 
             Controller.Rigidbody.velocity = new Vector2(Controller.Rigidbody.velocity.x, 0f);
             Controller.Rigidbody.AddForce(jumpVector, ForceMode2D.Impulse);
