@@ -922,6 +922,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6eb3eda83551ed40b90393bcb042515, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  volumeModifier: 1
 --- !u!82 &1876414805
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1058,12 +1059,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 114766235166199870, guid: 72c17312ccd62754899482621ed82ce9,
         type: 2}
-      propertyPath: startingState
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 224225516814017800, guid: 72c17312ccd62754899482621ed82ce9,
-        type: 2}
-      propertyPath: m_LocalPosition.z
+      propertyPath: fade
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
