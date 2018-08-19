@@ -105,7 +105,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   menuSceneName: Menu
   gameSceneName: 
-  failureSceneName: 
+  failureSceneName: GameOver
   victorySceneName: Victory
   startingState: 0
   fadeTime: 2
