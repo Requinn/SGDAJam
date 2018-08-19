@@ -77,6 +77,8 @@ GameObject:
   - component: {fileID: 114955767824067488}
   - component: {fileID: 114972504980398210}
   - component: {fileID: 114974176842687928}
+  - component: {fileID: 114881771606169298}
+  - component: {fileID: 114169640097726158}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -126,6 +128,7 @@ GameObject:
   - component: {fileID: 33151101250078090}
   - component: {fileID: 23624839410212644}
   - component: {fileID: 114404436105030424}
+  - component: {fileID: 114205514463240344}
   m_Layer: 0
   m_Name: Dragon_Slayer
   m_TagString: Untagged
@@ -400,6 +403,57 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SubscribableObject: {fileID: 0}
   flippingTransform: {fileID: 4973237878938828}
+--- !u!114 &114169640097726158
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1299001169133104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 260d1d511751da14485bfa107de40e27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SubscribableObject: {fileID: 114881771606169298}
+  OnTakeDamageEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  OnDeathEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_MethodName: GameOver
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  OnReviveEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+--- !u!114 &114205514463240344
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1553863605409678}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73a15314228b41c44aeee3bd9e010e09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SubscribableObject: {fileID: 0}
+  skeletonAnimation: {fileID: 0}
 --- !u!114 &114244654560623548
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -553,7 +607,7 @@ MonoBehaviour:
             tooltip: 
             showInInspector: 1
             networkSync: 0
-            value: {fileID: 1256785232678744}
+            value: {fileID: 1553863605409678}
         - ownerOption: 0
           gameObject:
             useVariable: 0
@@ -963,13 +1017,15 @@ MonoBehaviour:
         actionNames:
         - HutongGames.PlayMaker.Actions.SetAnimatorTrigger
         - MichaelWolfGames.CC2D.DashSate
+        - HutongGames.PlayMaker.Actions.Wait
         customNames:
         - 
         - 
-        actionEnabled: 0101
-        actionIsOpen: 0101
-        actionStartIndex: 0000000002000000
-        actionHashCodes: 9bd6f801d15ac104
+        - 
+        actionEnabled: 010101
+        actionIsOpen: 010101
+        actionStartIndex: 000000000200000005000000
+        actionHashCodes: 9bd6f801d15ac10448c01101
         unityObjectParams: []
         fsmGameObjectParams: []
         fsmOwnerDefaultParams:
@@ -980,7 +1036,7 @@ MonoBehaviour:
             tooltip: 
             showInInspector: 1
             networkSync: 0
-            value: {fileID: 1256785232678744}
+            value: {fileID: 1553863605409678}
         - ownerOption: 0
           gameObject:
             useVariable: 0
@@ -1019,6 +1075,12 @@ MonoBehaviour:
           showInInspector: 0
           networkSync: 0
           value: 0.2
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 0.5
         fsmIntParams: []
         fsmBoolParams: []
         fsmVector2Params: []
@@ -1026,21 +1088,25 @@ MonoBehaviour:
         fsmColorParams: []
         fsmRectParams: []
         fsmQuaternionParams: []
-        stringParams: []
-        byteData: 
+        stringParams:
+        - FINISHED
+        byteData: 00
         arrayParamSizes: 
         arrayParamTypes: []
         customTypeSizes: 
         customTypeNames: []
-        paramDataType: 14000000120000000f0000000f00000014000000
+        paramDataType: 14000000120000000f0000000f000000140000000f0000001700000001000000
         paramName:
         - gameObject
         - trigger
         - DashDistance
         - DashDuration
         - ControllerObject
-        paramDataPos: 0000000000000000000000000100000001000000
-        paramByteDataSize: 0000000000000000000000000000000000000000
+        - time
+        - finishEvent
+        - realTime
+        paramDataPos: 0000000000000000000000000100000001000000020000000000000000000000
+        paramByteDataSize: 0000000000000000000000000000000000000000000000000000000001000000
     - name: State 2
       description: 
       colorIndex: 0
@@ -1135,7 +1201,7 @@ MonoBehaviour:
             tooltip: 
             showInInspector: 1
             networkSync: 0
-            value: {fileID: 1256785232678744}
+            value: {fileID: 1553863605409678}
         - ownerOption: 0
           gameObject:
             useVariable: 0
@@ -1232,7 +1298,7 @@ MonoBehaviour:
         tooltip: 
         showInInspector: 1
         networkSync: 0
-        value: {fileID: 1256785232678744}
+        value: {fileID: 1553863605409678}
       objectVariables: []
       materialVariables: []
       textureVariables: []
@@ -1326,6 +1392,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f9b2a2ad76766b4eaf61739e8ac316e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114881771606169298
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1299001169133104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4405c16d705f3a48b1e04dda48daacb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Faction: 1
+  maxHealth: 4
+  currentHealth: 4
+  _useInvulnerability: 0
+  _invulnTime: 0.25
+  _isInvulnerable: 0
 --- !u!114 &114955767824067488
 MonoBehaviour:
   m_ObjectHideFlags: 1
