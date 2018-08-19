@@ -298,7 +298,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 50
-        y: 164
+        y: 148
         width: 100
         height: 32
       isBreakpoint: 0
@@ -358,7 +358,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 201
-        y: 162
+        y: 146
         width: 100
         height: 48
       isBreakpoint: 0
@@ -384,14 +384,12 @@ MonoBehaviour:
       actionData:
         actionNames:
         - MichaelWolfGames.CC2D.GroundControlState
-        - MichaelWolfGames.CC2D.DefaultControlState
         customNames:
         - 
-        - 
-        actionEnabled: 0100
-        actionIsOpen: 0101
-        actionStartIndex: 000000000b000000
-        actionHashCodes: 318cf303fc3dc103
+        actionEnabled: 01
+        actionIsOpen: 01
+        actionStartIndex: 00000000
+        actionHashCodes: de1af301
         unityObjectParams: []
         fsmGameObjectParams: []
         fsmOwnerDefaultParams:
@@ -403,48 +401,7 @@ MonoBehaviour:
             showInInspector: 0
             networkSync: 0
             value: {fileID: 0}
-        - ownerOption: 0
-          gameObject:
-            useVariable: 0
-            name: 
-            tooltip: 
-            showInInspector: 0
-            networkSync: 0
-            value: {fileID: 0}
-        animationCurveParams:
-        - curve:
-            serializedVersion: 2
-            m_Curve:
-            - serializedVersion: 3
-              time: 0
-              value: 1
-              inSlope: -2.011297
-              outSlope: -2.011297
-              tangentMode: 0
-              weightedMode: 0
-              inWeight: 0.33333334
-              outWeight: 0.07795699
-            - serializedVersion: 3
-              time: 0.5
-              value: 0.5
-              inSlope: 0
-              outSlope: 0
-              tangentMode: 1
-              weightedMode: 0
-              inWeight: 0.33333334
-              outWeight: 0.33333334
-            - serializedVersion: 3
-              time: 1
-              value: 0
-              inSlope: -2.2219994
-              outSlope: -2.2219994
-              tangentMode: 0
-              weightedMode: 0
-              inWeight: 0.075268865
-              outWeight: 0.33333334
-            m_PreInfinity: 2
-            m_PostInfinity: 2
-            m_RotationOrder: 4
+        animationCurveParams: []
         functionCallParams: []
         fsmTemplateControlParams: []
         fsmEventTargetParams: []
@@ -467,12 +424,13 @@ MonoBehaviour:
         - OnJump
         - EnterAir
         - 
-        byteData: 0000f040000048426666663f0000a04000006041cdcccc3ecdcccc3d0000f0400000e04000006041cdcc4c3d9a99993d0000803ecdcccc3eec51b83dcdcccc3d
+        - 
+        byteData: 0000f040000048423333733f0000a04000006041cdcccc3e
         arrayParamSizes: 
         arrayParamTypes: []
         customTypeSizes: 
         customTypeNames: []
-        paramDataType: 02000000020000000200000002000000020000000200000002000000170000001700000017000000140000000200000002000000020000000200000002000000020000000200000002000000160000000200000014000000
+        paramDataType: 0200000002000000020000000200000002000000020000001700000017000000170000001700000014000000
         paramName:
         - _moveSpeed
         - _horzAcceleration
@@ -480,31 +438,20 @@ MonoBehaviour:
         - _jumpSpeed
         - _fallSpeed
         - _cayoteDuration
-        - _jumpCooldown
         - OnJump
         - OnEnterAir
         - OnExitAir
+        - OnStartSlide
         - ControllerObject
-        - _moveSpeed
-        - _jumpSpeed
-        - _fallSpeed
-        - _minJumpDuration
-        - _maxJumpDuration
-        - _apexDuration
-        - _hangTime
-        - _cayoteDuration
-        - _apexCurve
-        - _jumpCooldown
-        - ControllerObject
-        paramDataPos: 0000000004000000080000000c000000100000001400000018000000000000000100000002000000000000001c0000002000000024000000280000002c000000300000003400000038000000000000003c00000001000000
-        paramByteDataSize: 04000000040000000400000004000000040000000400000004000000000000000000000000000000000000000400000004000000040000000400000004000000040000000400000004000000000000000400000000000000
+        paramDataPos: 0000000004000000080000000c00000010000000140000000000000001000000020000000300000000000000
+        paramByteDataSize: 0400000004000000040000000400000004000000040000000000000000000000000000000000000000000000
     - name: Jumping
       description: 
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 356
-        y: 101
+        x: 467
+        y: 114
         width: 100
         height: 32
       isBreakpoint: 0
@@ -560,7 +507,7 @@ MonoBehaviour:
         fsmQuaternionParams: []
         stringParams:
         - FINISHED
-        byteData: 0000f040000048426666663f00008441
+        byteData: 0000f04000004842a4707d3f00008441
         arrayParamSizes: 
         arrayParamTypes: []
         customTypeSizes: 
@@ -580,8 +527,8 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 365
-        y: 171
+        x: 470
+        y: 180
         width: 100
         height: 32
       isBreakpoint: 0
@@ -637,7 +584,7 @@ MonoBehaviour:
         fsmQuaternionParams: []
         stringParams:
         - ExitAir
-        byteData: 0000f040000048426666663f
+        byteData: 0000f0400000484248e17a3f
         arrayParamSizes: 
         arrayParamTypes: []
         customTypeSizes: 
@@ -651,6 +598,100 @@ MonoBehaviour:
         - ControllerObject
         paramDataPos: 0000000004000000080000000000000000000000
         paramByteDataSize: 0400000004000000040000000000000000000000
+    - name: Slide
+      description: 
+      colorIndex: 0
+      position:
+        serializedVersion: 2
+        x: 227
+        y: 248
+        width: 100
+        height: 64
+      isBreakpoint: 0
+      isSequence: 0
+      hideUnused: 0
+      transitions:
+      - fsmEvent:
+          name: OnJump
+          isSystemEvent: 0
+          isGlobal: 0
+        toState: Jumping
+        linkStyle: 0
+        linkConstraint: 0
+        colorIndex: 0
+      - fsmEvent:
+          name: EnterAir
+          isSystemEvent: 0
+          isGlobal: 0
+        toState: InAir
+        linkStyle: 0
+        linkConstraint: 0
+        colorIndex: 0
+      - fsmEvent:
+          name: FINISHED
+          isSystemEvent: 1
+          isGlobal: 0
+        toState: Grounded
+        linkStyle: 0
+        linkConstraint: 0
+        colorIndex: 0
+      actionData:
+        actionNames:
+        - MichaelWolfGames.CC2D.SlidingState
+        customNames:
+        - 
+        actionEnabled: 01
+        actionIsOpen: 01
+        actionStartIndex: 00000000
+        actionHashCodes: df812e01
+        unityObjectParams: []
+        fsmGameObjectParams: []
+        fsmOwnerDefaultParams:
+        - ownerOption: 0
+          gameObject:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: {fileID: 0}
+        animationCurveParams: []
+        functionCallParams: []
+        fsmTemplateControlParams: []
+        fsmEventTargetParams: []
+        fsmPropertyParams: []
+        layoutOptionParams: []
+        fsmStringParams: []
+        fsmObjectParams: []
+        fsmVarParams: []
+        fsmArrayParams: []
+        fsmEnumParams: []
+        fsmFloatParams: []
+        fsmIntParams: []
+        fsmBoolParams: []
+        fsmVector2Params: []
+        fsmVector3Params: []
+        fsmColorParams: []
+        fsmRectParams: []
+        fsmQuaternionParams: []
+        stringParams:
+        - OnJump
+        - EnterAir
+        - FINISHED
+        byteData: ec51b83d
+        arrayParamSizes: 
+        arrayParamTypes: []
+        customTypeSizes: 
+        customTypeNames: []
+        paramDataType: 0200000017000000170000001700000014000000
+        paramName:
+        - _cayoteDuration
+        - OnJump
+        - OnEnterAir
+        - OnStopSlide
+        - ControllerObject
+        paramDataPos: 0000000000000000010000000200000000000000
+        paramByteDataSize: 0400000000000000000000000000000000000000
     events:
     - name: FINISHED
       isSystemEvent: 1
@@ -763,7 +804,7 @@ MonoBehaviour:
   _rigidbody: {fileID: 50978093396418506}
   _animator: {fileID: 0}
   _maxHorzSpeed: 20
-  _maxVertSpeed: 40
+  _maxVertSpeed: 20
   _groundMask:
     serializedVersion: 2
     m_Bits: 1

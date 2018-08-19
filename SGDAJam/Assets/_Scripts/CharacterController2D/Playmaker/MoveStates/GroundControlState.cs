@@ -17,11 +17,10 @@ namespace MichaelWolfGames.CC2D
         public float _fallSpeed = 10f;
         public float _cayoteDuration = 0.09f;
 
-        public float _jumpCooldown = 0.1f;
-
         public FsmEvent OnJump;
         public FsmEvent OnEnterAir;
         public FsmEvent OnExitAir;
+        public FsmEvent OnStartSlide;
 
 
         #endregion
@@ -32,10 +31,6 @@ namespace MichaelWolfGames.CC2D
         private float cayoteTimer = 0f;
         private bool cayoteTimeActive = false;
 
-        //// Not yet implemented.
-        //private float jumpCooldownTimer = 0f; // Jump as an ability with a cooldown?
-        //private bool jumpOnCooldown = false;
-
         #endregion
 
         public override void Reset()
@@ -43,9 +38,6 @@ namespace MichaelWolfGames.CC2D
             base.Reset();
             cayoteTimer = 0f;
             cayoteTimeActive = false;
-
-            //jumpCooldownTimer = 0f;
-            //jumpOnCooldown = false;
         }
 
         public override void OnExit()
@@ -135,6 +127,7 @@ namespace MichaelWolfGames.CC2D
                     if (!validMove)
                     {
                         horz = 0f;
+                        Fsm.Event(OnStartSlide);
                     }
                 }
                 // Moving Up/Down Slopes.
