@@ -4056,6 +4056,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _damageableNode:
   - {fileID: 179252294}
+  dragon: {fileID: 1471657089}
 --- !u!4 &1551648938
 Transform:
   m_ObjectHideFlags: 0
