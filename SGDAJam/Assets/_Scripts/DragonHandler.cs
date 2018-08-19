@@ -11,7 +11,7 @@ public class DragonHandler : MonoBehaviour {
     private int _nodesKilled;
 	// Use this for initialization
 
-	private DumbSceneWorkaround dsw;
+	public DumbSceneWorkaround dsw;
 	public GameObject dragon;
 	private bool gameOver, done;
 	
@@ -24,13 +24,12 @@ public class DragonHandler : MonoBehaviour {
         }
 
 		gameOver = done = false;
-		dsw = GetComponent<DumbSceneWorkaround>();
 	}
 
 	private void Update() {
 		if(gameOver) {
-			if (dragon.transform.position.y > -35f) {
-				dragon.transform.position += Vector3.down * 10f * Time.deltaTime;
+			if (dragon.transform.position.y > -100f) {
+				dragon.transform.position += Vector3.down * 15f * Time.deltaTime;
 				done = false;
 			} else {
 				done = true;
