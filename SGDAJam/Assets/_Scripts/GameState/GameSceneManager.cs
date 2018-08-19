@@ -12,7 +12,8 @@ public class GameSceneManager : MonoBehaviour {
         InGame,
         GameFailure,
         GameVictory,
-        VictoryScreen
+        VictoryScreen,
+		GameOverScreen
     }
 
     public string menuSceneName;
@@ -30,6 +31,7 @@ public class GameSceneManager : MonoBehaviour {
     private float startFadeTime = 0;
     public Color victoryFadeColor = Color.white;
     public Color failureFadeColor = Color.black;
+	public bool fade;
     public Image fadeLayer;
 
     public static GameSceneManager Instance
@@ -67,28 +69,33 @@ public class GameSceneManager : MonoBehaviour {
             case (ViewState.GameFailure):
                 //The player has failed, fade to black
                 {
-                    float endFadeTime = startFadeTime + fadeTime;
-                    if (Time.fixedTime >= endFadeTime)
-                    {
-                        DisableFade();
-                        if(!string.IsNullOrEmpty(failureSceneName))
-                        {
-                            UnityEngine.SceneManagement.SceneManager.LoadScene(failureSceneName);
-                        }
-                        else
-                        {
-                            UnityEngine.SceneManagement.SceneManager.LoadScene(gameSceneName);
-                        }
-                        
-                    }
-                    else
-                    {
-                        //Lerp color
-                        FadeWithLerp(Mathf.InverseLerp(startFadeTime, endFadeTime, Time.fixedTime));
-                    }
+					if(fade) {
+						float endFadeTime = startFadeTime + fadeTime;
+						if (Time.fixedTime >= endFadeTime) {
+							DisableFade();
+							if (!string.IsNullOrEmpty(failureSceneName)) {
+								UnityEngine.SceneManagement.SceneManager.LoadScene(failureSceneName);
+							}
+							else {
+								UnityEngine.SceneManagement.SceneManager.LoadScene(gameSceneName);
+							}
+							_currentState = ViewState.GameOverScreen;
 
-                    break;
-                }
+						} else {
+							//Lerp color
+							FadeWithLerp(Mathf.InverseLerp(startFadeTime, endFadeTime, Time.fixedTime));
+						}
+
+					} else {
+						if (!string.IsNullOrEmpty(failureSceneName)) {
+							UnityEngine.SceneManagement.SceneManager.LoadScene(failureSceneName);
+						} else {
+							UnityEngine.SceneManagement.SceneManager.LoadScene(gameSceneName);
+						}
+						_currentState = ViewState.GameOverScreen;
+					}
+					break;
+				}
             case (ViewState.GameVictory):
                 //The player is victorious, fade to white, then swap to victory scene
                 {
@@ -97,6 +104,7 @@ public class GameSceneManager : MonoBehaviour {
                     {
                         DisableFade();
                         UnityEngine.SceneManagement.SceneManager.LoadScene(victorySceneName);
+						_currentState = ViewState.VictoryScreen;
                     }
                     else
                     {
@@ -158,20 +166,27 @@ public class GameSceneManager : MonoBehaviour {
     //Shoulda been seperate
     private void DisableFade()
     {
-        fadeLayer.color = new Color(1, 1, 1, 0);
-        fadeLayer.gameObject.SetActive(false);
+		if(fade) {
+			fadeLayer.color = new Color(1, 1, 1, 0);
+			fadeLayer.gameObject.SetActive(false);
+		}
+        
     }
 
     private void EnableFade()
     {
-        startFadeTime = Time.fixedTime;
-        fadeLayer.gameObject.SetActive(true);
+		if(fade) {
+			startFadeTime = Time.fixedTime;
+			fadeLayer.gameObject.SetActive(true);
+		}
     }
 
     private void FadeWithLerp(float lerp)
     {
-        var newColor = GetCurrentFadeColor();
-        fadeLayer.color = new Color(newColor.r, newColor.g, newColor.b, lerp);
+		if(fade) {
+			var newColor = GetCurrentFadeColor();
+			fadeLayer.color = new Color(newColor.r, newColor.g, newColor.b, lerp);
+		}
     }
 
     private Color GetCurrentFadeColor()
@@ -187,5 +202,5 @@ public class GameSceneManager : MonoBehaviour {
 
     }
 #endregion
-
+	
 }
