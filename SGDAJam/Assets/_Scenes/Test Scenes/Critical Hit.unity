@@ -200,6 +200,56 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &85463113
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 85463115}
+  - component: {fileID: 85463114}
+  m_Layer: 0
+  m_Name: PlayMakerGUI
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &85463114
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 85463113}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -73581967, guid: e743331561ef77147ae48cda9bcb8209, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  previewOnGUI: 1
+  enableGUILayout: 1
+  drawStateLabels: 1
+  enableStateLabelsInBuilds: 0
+  GUITextureStateLabels: 0
+  GUITextStateLabels: 0
+  filterLabelsWithDistance: 0
+  maxLabelDistance: 10
+  controlMouseCursor: 1
+  labelScale: 1
+--- !u!4 &85463115
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 85463113}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &151902966
 GameObject:
   m_ObjectHideFlags: 0
@@ -241,6 +291,14 @@ MonoBehaviour:
   _skinWidth: 0.05
   _slopeLimit: 60
   _ceilingSlopeLimit: 20
+  FSMController: {fileID: 0}
+  isGroundedFSM:
+    useVariable: 0
+    name: 
+    tooltip: 
+    showInInspector: 0
+    networkSync: 0
+    value: 0
 --- !u!50 &151902968
 Rigidbody2D:
   serializedVersion: 4
@@ -358,19 +416,19 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 232
-        y: 113
-        width: 100
+        x: 243
+        y: 107
+        width: 103
         height: 32
       isBreakpoint: 0
       isSequence: 0
       hideUnused: 0
       transitions:
       - fsmEvent:
-          name: Dash
+          name: CheckDash
           isSystemEvent: 0
           isGlobal: 0
-        toState: Dash
+        toState: CheckForAir
         linkStyle: 0
         linkConstraint: 0
         colorIndex: 0
@@ -471,7 +529,7 @@ MonoBehaviour:
         fsmRectParams: []
         fsmQuaternionParams: []
         stringParams:
-        - Dash
+        - CheckDash
         - OnWall
         byteData: 0000e0400000604100006041cdcc4c3d9a99993e0000803ecdcccc3dec51b83dcdcccc3d
         arrayParamSizes: 
@@ -503,8 +561,8 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 218
-        y: 212
+        x: 255
+        y: 242
         width: 100
         height: 32
       isBreakpoint: 0
@@ -572,7 +630,7 @@ MonoBehaviour:
           tooltip: 
           showInInspector: 0
           networkSync: 0
-          value: 4
+          value: 10
         - useVariable: 0
           name: 
           tooltip: 
@@ -653,9 +711,94 @@ MonoBehaviour:
         paramName: []
         paramDataPos: 
         paramByteDataSize: 
+    - name: CheckForAir
+      description: 
+      colorIndex: 0
+      position:
+        serializedVersion: 2
+        x: 288
+        y: 165
+        width: 111
+        height: 48
+      isBreakpoint: 0
+      isSequence: 0
+      hideUnused: 0
+      transitions:
+      - fsmEvent:
+          name: Dash
+          isSystemEvent: 0
+          isGlobal: 0
+        toState: Dash
+        linkStyle: 0
+        linkConstraint: 0
+        colorIndex: 0
+      - fsmEvent:
+          name: Return
+          isSystemEvent: 0
+          isGlobal: 0
+        toState: Default
+        linkStyle: 0
+        linkConstraint: 0
+        colorIndex: 0
+      actionData:
+        actionNames:
+        - HutongGames.PlayMaker.Actions.BoolTest
+        customNames:
+        - 
+        actionEnabled: 01
+        actionIsOpen: 01
+        actionStartIndex: 00000000
+        actionHashCodes: a4c8bf00
+        unityObjectParams: []
+        fsmGameObjectParams: []
+        fsmOwnerDefaultParams: []
+        animationCurveParams: []
+        functionCallParams: []
+        fsmTemplateControlParams: []
+        fsmEventTargetParams: []
+        fsmPropertyParams: []
+        layoutOptionParams: []
+        fsmStringParams: []
+        fsmObjectParams: []
+        fsmVarParams: []
+        fsmArrayParams: []
+        fsmEnumParams: []
+        fsmFloatParams: []
+        fsmIntParams: []
+        fsmBoolParams:
+        - useVariable: 1
+          name: isGroundedFSM
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 0
+        fsmVector2Params: []
+        fsmVector3Params: []
+        fsmColorParams: []
+        fsmRectParams: []
+        fsmQuaternionParams: []
+        stringParams:
+        - Return
+        - Dash
+        byteData: 00
+        arrayParamSizes: 
+        arrayParamTypes: []
+        customTypeSizes: 
+        customTypeNames: []
+        paramDataType: 11000000170000001700000001000000
+        paramName:
+        - boolVariable
+        - isTrue
+        - isFalse
+        - everyFrame
+        paramDataPos: 00000000000000000100000000000000
+        paramByteDataSize: 00000000000000000000000001000000
     events:
     - name: FINISHED
       isSystemEvent: 1
+      isGlobal: 0
+    - name: CheckDash
+      isSystemEvent: 0
       isGlobal: 0
     - name: Dash
       isSystemEvent: 0
@@ -663,11 +806,20 @@ MonoBehaviour:
     - name: OnWall
       isSystemEvent: 0
       isGlobal: 0
+    - name: Return
+      isSystemEvent: 0
+      isGlobal: 0
     globalTransitions: []
     variables:
       floatVariables: []
       intVariables: []
-      boolVariables: []
+      boolVariables:
+      - useVariable: 1
+        name: isGroundedFSM
+        tooltip: 
+        showInInspector: 0
+        networkSync: 0
+        value: 0
       stringVariables: []
       vector2Variables: []
       vector3Variables: []
@@ -688,7 +840,7 @@ MonoBehaviour:
       enumVariables: []
       categories:
       - 
-      variableCategoryIDs: 00000000
+      variableCategoryIDs: 0000000000000000
     description: 
     docUrl: 
     showStateLabel: 1
@@ -698,7 +850,7 @@ MonoBehaviour:
     locked: 0
     manualUpdate: 0
     keepDelayedEventsOnStateExit: 0
-    preprocessed: 1
+    preprocessed: 0
     ExposedEvents: []
     RestartOnEnable: 1
     EnableDebugFlow: 0
@@ -1761,6 +1913,10 @@ Prefab:
         type: 2}
       propertyPath: DealDamageOncePerActivation
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1691563778640592, guid: 2d24b4cfa0ffb1c4fba0c1a863e56f51, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2d24b4cfa0ffb1c4fba0c1a863e56f51, type: 2}
@@ -2849,6 +3005,7 @@ GameObject:
   - component: {fileID: 2128607255}
   - component: {fileID: 2128607257}
   - component: {fileID: 2128607256}
+  - component: {fileID: 2128607258}
   m_Layer: 0
   m_Name: HitBox
   m_TagString: Untagged
@@ -2863,8 +3020,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2128607254}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.45, y: 0.7, z: 0}
-  m_LocalScale: {x: 7.6125, y: 5.171631, z: 1}
+  m_LocalPosition: {x: 0.01, y: -0.21, z: 0}
+  m_LocalScale: {x: 5.20695, y: 5.4819283, z: 1}
   m_Children: []
   m_Father: {fileID: 46592261}
   m_RootOrder: 2
@@ -2930,6 +3087,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2128607258
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2128607254}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27563cfecf484b069ea2deaea5ac6f66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultDamageValue: 100
+  faction: 0
+  damageType: 1
+  _canDealDamage: 1
+  DealDamageOncePerActivation: 0
 --- !u!1 &2146948679
 GameObject:
   m_ObjectHideFlags: 0

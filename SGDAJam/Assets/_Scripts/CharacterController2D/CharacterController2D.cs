@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using HutongGames.PlayMaker.Actions;
 using UnityEngine;
+using HutongGames.PlayMaker;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
@@ -64,6 +65,9 @@ namespace MichaelWolfGames.CC2D
         #endregion
         #region Properties
         public bool LimitSpeed { get; set; }
+        //Control the bool to make plunging air only
+        public PlayMakerFSM FSMController;
+        public FsmBool isGroundedFSM;
 
         public bool IsGrounded { get; protected set; }
         public bool WasGrounded { get; protected set; }
@@ -139,11 +143,11 @@ namespace MichaelWolfGames.CC2D
             UpdateMovementFunc = deltaTime => { return _rigidbody.velocity; };
             StartCoroutine(CoDoLateFixedUpdate());
         }
-        protected virtual void Start()
-        {
+        protected virtual void Start() {
             if (!capsuleCollider) capsuleCollider = GetComponent<CapsuleCollider2D>();
             if (!_rigidbody) _rigidbody = GetComponent<Rigidbody2D>();
             if (!_animator) _animator = GetComponentInChildren<Animator>();
+            FSMController = GetComponent<PlayMakerFSM>();
         }
 
         //ToDo: Optimize pieces into FixedUpdate after core function works nicely.
@@ -229,7 +233,7 @@ namespace MichaelWolfGames.CC2D
         {
             // Ground Check
             WasGrounded = IsGrounded;
-            IsGrounded = false;
+            FSMController.Fsm.GetFsmBool("isGroundedFSM").Value = IsGrounded = false;
             Vector2 dir = Vector2.down;
             RaycastHit2D[] hits = new RaycastHit2D[4];
             capsuleCollider.Cast(dir, hits, _skinWidth);
@@ -250,7 +254,7 @@ namespace MichaelWolfGames.CC2D
                     if (angle < _slopeLimit)
                     {
                         Debug.DrawLine(point, point + norm, Color.cyan, 0.5f);
-                        IsGrounded = true;
+                        FSMController.Fsm.GetFsmBool("isGroundedFSM").Value = IsGrounded = true;
                         CurrentGroundNormal = norm;
                         break;
                     }
