@@ -8,6 +8,8 @@ namespace MichaelWolfGames.CC2D
         #region Fields
 
         public float _moveSpeed = 7.5f;
+        public float _horzAcceleration = 50f;
+        public float _horzDecelerationFactor = 0.9f;
         public float _jumpSpeed = 10f;
 
         public FsmEvent OnFinishJump;
@@ -20,7 +22,6 @@ namespace MichaelWolfGames.CC2D
         {
             base.OnEnter();
 
-            Debug.Log("JUMP!");
             Debug.DrawLine(Controller.GroundCheckPos, Controller.GroundCheckPos + Controller.CurrentGroundNormal * 10f, Color.magenta, 0.25f);
 
             Vector2 jumpNormal = (Controller.IsGrounded) ? Controller.CurrentGroundNormal : Vector2.up;
@@ -35,7 +36,20 @@ namespace MichaelWolfGames.CC2D
         {
             float h = Input.GetAxis("Horizontal");
             float v = 0f;
-            h *= _moveSpeed;
+            //h *= _moveSpeed;
+
+            if (Mathf.Abs(h) > 0.1f)
+            {
+                float horz = Controller.Rigidbody.velocity.x + (deltaTime * (h * _horzAcceleration));
+                h = Mathf.Clamp(horz, -_moveSpeed, _moveSpeed);
+            }
+            else
+            {
+                if (Mathf.Abs(Controller.Rigidbody.velocity.x) > 0.01f)
+                {
+                    h = Controller.Rigidbody.velocity.x * _horzDecelerationFactor;
+                }
+            }
 
             Vector2 resultVelocity = new Vector2(h, Controller.Rigidbody.velocity.y);
             if(_isJumping)

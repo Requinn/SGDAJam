@@ -72,7 +72,7 @@ namespace MichaelWolfGames.CC2D
         public bool WasOnCeiling { get; protected set; }
 
         public virtual bool IsFacingRight { get; protected set; }
-        public virtual bool Suspended { get; protected set; }
+        public virtual bool Suspended { get; set; }
 
         public float CurrentSlopeAngle { get; protected set; }
         public Vector2 CurrentGroundNormal { get; protected set; }
