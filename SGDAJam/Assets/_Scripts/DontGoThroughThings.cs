@@ -15,13 +15,13 @@ public class DontGoThroughThings : MonoBehaviour
     private float sqrMinimumExtent;
     private Vector2 previousPosition;
     private Rigidbody2D myRigidbody;
-    private Collider myCollider;
+    private Collider2D myCollider;
 
     //initialize values 
     void Start()
     {
         myRigidbody = GetComponent<Rigidbody2D>();
-        myCollider = GetComponent<Collider>();
+        myCollider = GetComponent<Collider2D>();
         previousPosition = myRigidbody.position;
         minimumExtent = Mathf.Min(Mathf.Min(myCollider.bounds.extents.x, myCollider.bounds.extents.y), myCollider.bounds.extents.z);
         partialExtent = minimumExtent * (1.0f - skinWidth);

@@ -7,11 +7,13 @@ using System;
 public class DragonHandler : MonoBehaviour {
     [SerializeField]
     HealthManagerBase[] _damageableNode;
-
+    private int _nodesToHit;
+    private int _nodesKilled;
     // Use this for initialization
     void Start() {
+        _nodesToHit = _damageableNode.Length;
         //subscribe to all the damageablenodes
-        for (int i = 0; i < _damageableNode.Length; i++) {
+        for (int i = 0; i < _nodesToHit; i++) {
             _damageableNode[i].OnTakeDamage += ReactToDamage;
             _damageableNode[i].OnDeath += ReactToKill;
         }
@@ -22,6 +24,9 @@ public class DragonHandler : MonoBehaviour {
     /// </summary>
     private void ReactToKill() {
         Debug.Log("Node died");
+        _nodesKilled++;
+
+        CheckForGameOver();
     }
 
     /// <summary>
@@ -32,6 +37,16 @@ public class DragonHandler : MonoBehaviour {
     private void ReactToDamage(object sender, Damage.DamageEventArgs args) {
         Debug.Log("Damaged with severity: " + args.DamageValue);
         //when struck, speed up the animation of the dragon by X amount for some seconds
+    }
+
+    /// <summary>
+    /// Check if the game is finished every time we kill a node
+    /// </summary>
+    private void CheckForGameOver() {
+        if (_nodesKilled == _nodesToHit) {
+            //End the game
+            Debug.Log("GAME ENDED");
+        } 
     }
 
 
