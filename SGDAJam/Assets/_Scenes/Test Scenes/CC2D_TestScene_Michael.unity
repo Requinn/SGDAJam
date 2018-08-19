@@ -951,25 +951,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 5
       objectReference: {fileID: 0}
-    - target: {fileID: 95105764937119812, guid: 15dea5d0cc3dbfe4996a52bb5e2550e7,
+    - target: {fileID: 33151101250078090, guid: 15dea5d0cc3dbfe4996a52bb5e2550e7,
         type: 2}
-      propertyPath: m_Controller
+      propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 9100000, guid: 64d3aa678217c364d88521ba48cb572f, type: 2}
-    - target: {fileID: 114381656485921034, guid: 15dea5d0cc3dbfe4996a52bb5e2550e7,
-        type: 2}
-      propertyPath: fsm.states.Array.data[1].actionData.byteData.Array.data[8]
-      value: 123
-      objectReference: {fileID: 0}
-    - target: {fileID: 114381656485921034, guid: 15dea5d0cc3dbfe4996a52bb5e2550e7,
-        type: 2}
-      propertyPath: fsm.states.Array.data[1].actionData.byteData.Array.data[9]
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 114381656485921034, guid: 15dea5d0cc3dbfe4996a52bb5e2550e7,
-        type: 2}
-      propertyPath: fsm.states.Array.data[1].actionData.byteData.Array.data[10]
-      value: 110
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 15dea5d0cc3dbfe4996a52bb5e2550e7, type: 2}
@@ -1278,6 +1263,34 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &294912096
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 294912097}
+  m_Layer: 0
+  m_Name: Petra
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &294912097
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 294912096}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -3, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 25
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &339135183
 GameObject:
   m_ObjectHideFlags: 0
@@ -3086,6 +3099,14 @@ MonoBehaviour:
   _skinWidth: 0.05
   _slopeLimit: 60
   _ceilingSlopeLimit: 20
+  FSMController: {fileID: 0}
+  isGroundedFSM:
+    useVariable: 0
+    name: 
+    tooltip: 
+    showInInspector: 0
+    networkSync: 0
+    value: 0
 --- !u!114 &872343220
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5621,15 +5642,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4456091413870360, guid: d734b08670dd263429cbfe5a1153e93f, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0.5999537
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 4456091413870360, guid: d734b08670dd263429cbfe5a1153e93f, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 1
+      value: 32.7
       objectReference: {fileID: 0}
     - target: {fileID: 4456091413870360, guid: d734b08670dd263429cbfe5a1153e93f, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4456091413870360, guid: d734b08670dd263429cbfe5a1153e93f, type: 2}
       propertyPath: m_LocalRotation.x
