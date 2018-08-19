@@ -19,11 +19,11 @@ namespace JLProject {
             //StartFadeOut(FadeAwakeDuration);
         }
 
-        private void StartFadeIn(float duration) {
+        public void StartFadeIn(float duration) {
             InitiateFade(0f, 1f, duration);
         }
 
-        private void StartFadeOut(float duration) {
+        public void StartFadeOut(float duration) {
             InitiateFade(1f, 0f, duration);
         }
 
