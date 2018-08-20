@@ -21,6 +21,8 @@ public class DragonHandler : MonoBehaviour {
     public int nodesToStartRot = 1;
     public float rotTime = 5f;
     public float rotGoal = 60f;
+    public GameObject airShip;
+    public float shipDissapearTime = 5f;
     private bool startedRot = false;
 	
     void Start() {
@@ -109,6 +111,11 @@ public class DragonHandler : MonoBehaviour {
         while (timer < duration)
         {
             timer += Time.deltaTime;
+            if (timer > shipDissapearTime)
+            {
+                airShip.SetActive(false);
+            }
+
             dragonRoot.localRotation = Quaternion.Slerp(startRot, endRot, timer / duration);
             yield return null;
         }

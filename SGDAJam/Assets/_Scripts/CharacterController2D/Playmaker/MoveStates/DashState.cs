@@ -47,7 +47,7 @@ namespace MichaelWolfGames.CC2D
 
         protected override Vector2 MovementUpdate(float deltaTime)
         {
-            return velocity;
+            return Controller.Rigidbody.velocity;
         }
     }
 }

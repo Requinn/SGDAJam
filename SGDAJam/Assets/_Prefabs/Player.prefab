@@ -76,9 +76,7 @@ GameObject:
   - component: {fileID: 50978093396418506}
   - component: {fileID: 114955767824067488}
   - component: {fileID: 114972504980398210}
-  - component: {fileID: 114974176842687928}
-  - component: {fileID: 114881771606169298}
-  - component: {fileID: 114169640097726158}
+  - component: {fileID: 114778712668499038}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -172,7 +170,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1299001169133104}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 1}
+  m_LocalPosition: {x: -23.81998, y: 8.667491, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4973237878938828}
@@ -202,7 +200,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1461820311903002}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.6, y: 1, z: 0}
+  m_LocalPosition: {x: 0.6, y: 1.612, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4479175531166108}
@@ -242,7 +240,7 @@ Transform:
   m_GameObject: {fileID: 1553863605409678}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -5}
-  m_LocalScale: {x: 0.15, y: 0.15, z: 0.15}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_Children:
   - {fileID: 4095880658253890}
   m_Father: {fileID: 4479175531166108}
@@ -351,8 +349,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.75}
-  m_Size: {x: 0.5, y: 1.5}
+  m_Offset: {x: 0, y: 1.2765508}
+  m_Size: {x: 0.5, y: 2.5531015}
   m_Direction: 0
 --- !u!95 &95105764937119812
 Animator:
@@ -403,44 +401,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SubscribableObject: {fileID: 0}
   flippingTransform: {fileID: 4973237878938828}
---- !u!114 &114169640097726158
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1299001169133104}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 260d1d511751da14485bfa107de40e27, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SubscribableObject: {fileID: 114881771606169298}
-  OnTakeDamageEvent:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  OnDeathEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: GameOver
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  OnReviveEvent:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
 --- !u!114 &114205514463240344
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1392,7 +1352,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f9b2a2ad76766b4eaf61739e8ac316e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114881771606169298
+--- !u!114 &114778712668499038
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1400,15 +1360,36 @@ MonoBehaviour:
   m_GameObject: {fileID: 1299001169133104}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d4405c16d705f3a48b1e04dda48daacb, type: 3}
+  m_Script: {fileID: 11500000, guid: 260d1d511751da14485bfa107de40e27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Faction: 1
-  maxHealth: 4
-  currentHealth: 4
-  _useInvulnerability: 0
-  _invulnTime: 0.25
-  _isInvulnerable: 0
+  SubscribableObject: {fileID: 0}
+  OnTakeDamageEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  OnDeathEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_MethodName: GameOver
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  OnReviveEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!114 &114955767824067488
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1456,44 +1437,6 @@ MonoBehaviour:
   _useInvulnerability: 0
   _invulnTime: 0.25
   _isInvulnerable: 0
---- !u!114 &114974176842687928
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1299001169133104}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 260d1d511751da14485bfa107de40e27, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SubscribableObject: {fileID: 114972504980398210}
-  OnTakeDamageEvent:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  OnDeathEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: GameOver
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  OnReviveEvent:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
 --- !u!212 &212072920937783640
 SpriteRenderer:
   m_ObjectHideFlags: 1
