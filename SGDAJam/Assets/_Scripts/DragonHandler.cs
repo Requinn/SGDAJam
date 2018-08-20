@@ -16,6 +16,12 @@ public class DragonHandler : MonoBehaviour {
 	public DumbSceneWorkaround dsw;
 	public GameObject dragon;
 	private bool gameOver, done;
+    public float fallSpeed = 20f;
+    public Transform dragonRoot;
+    public int nodesToStartRot = 1;
+    public float rotTime = 5f;
+    public float rotGoal = 60f;
+    private bool startedRot = false;
 	
     void Start() {
         _nodesToHit = _damageableNode.Length;
@@ -33,7 +39,7 @@ public class DragonHandler : MonoBehaviour {
 			PlayerPrefs.SetFloat("victory", 1f);
 			PlayerPrefs.Save();
 			if (dragon.transform.position.y > -100f) {
-				dragon.transform.position += Vector3.down * 15f * Time.deltaTime;
+				dragon.transform.position += Vector3.down * fallSpeed * Time.deltaTime;
 				done = false;
 			} else {
 				done = true;
@@ -53,6 +59,12 @@ public class DragonHandler : MonoBehaviour {
         Debug.Log("Node died");
         _nodesKilled++;
 
+	    if (_nodesKilled == nodesToStartRot && !startedRot)
+	    {
+	        startedRot = true;
+	        StartCoroutine(CoRotateUp(rotTime));
+	    }
+
         CheckForGameOver();
     }
 
@@ -65,6 +77,11 @@ public class DragonHandler : MonoBehaviour {
         //Debug.Log("Damaged with severity: " + args.DamageValue);
         //when struck, speed up the animation of the dragon by X amount for some seconds
         Audio.PlayOneShot(hurtRoar);
+
+        if (_nodesKilled == 1 && startedRot)
+        {
+            StartCoroutine(CoRotateUp(rotTime));
+        }
     }
 
     /// <summary>
@@ -77,5 +94,23 @@ public class DragonHandler : MonoBehaviour {
             gameOver = true;
 			Debug.Log("GAME ENDED");
         } 
+    }
+
+    IEnumerator CoRotateUp(float duration)
+    {
+        if (dragonRoot == null)
+        {
+            dragonRoot = transform.parent;
+        }
+
+        Quaternion startRot = dragonRoot.localRotation;
+        Quaternion endRot = Quaternion.Euler(0f, 0f, rotGoal);
+        float timer = 0f;
+        while (timer < duration)
+        {
+            timer += Time.deltaTime;
+            dragonRoot.localRotation = Quaternion.Slerp(startRot, endRot, timer / duration);
+            yield return null;
+        }
     }
 }

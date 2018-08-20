@@ -25,7 +25,7 @@ namespace MichaelWolfGames.CC2D
             Controller.LimitSpeed = false;
             timer = 0f;
             //we are dashing downwards for this attack
-            velocity = Vector2.down * (DashDistance.Value / DashDuration.Value);
+            //velocity = Vector2.down * (DashDistance.Value / DashDuration.Value);
             //velocity = new Vector2(((Controller.IsFacingRight) ? 1 : -1) * (DashDistance.Value / DashDuration.Value), 0f);
         }
 
